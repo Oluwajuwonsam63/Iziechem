@@ -10,10 +10,10 @@
     <meta name="description" content="{{$page_data['description']}}">
 
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/logo2.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/logo3.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/logo1.png">
-    <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/favicons/logo2.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicons/logo3.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicons/logo1.png') }}">
+    <link rel="manifest" href="{{ asset('assets/images/favicons/site.webmanifest') }}">
 
      <!-- Scripts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -28,26 +28,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
 
     <!--All CSS Styles-->
-    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendors/bootstrap-select/bootstrap-select.min.css">
-    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css">
-    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.css">
-    <link rel="stylesheet" href="assets/vendors/jarallax/jarallax.css">
-    <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css">
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.min.css">
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.pips.css">
-    <link rel="stylesheet" href="assets/vendors/tiny-slider/tiny-slider.css">
-    <link rel="stylesheet" href="assets/vendors/wallox-icons/style.css">
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/vendors/slick-carousel/slick.css">
-    <link rel="stylesheet" href="assets/vendors/slick-carousel/slick-theme.css">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-select/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/animate/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/jquery-ui/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/jarallax/jarallax.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/nouislider/nouislider.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/nouislider/nouislider.pips.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/tiny-slider/tiny-slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/wallox-icons/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/slick-carousel/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/slick-carousel/slick-theme.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <!-- template styles -->
-    <link rel="stylesheet" href="assets/css/wallox.css">
-    <link rel="stylesheet" href="assets/css/iziechem.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/wallox.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/iziechem.css') }}">
 </head>
 
 <body class="custom-cursor">
@@ -57,7 +57,7 @@
 
     <!-- preloader -->
     <div class="preloader">
-        <div class="preloader__image" style="background-image: url(assets/images/loaders.png);"></div>
+        <div class="preloader__image" style="background-image: url({{ asset('assets/images/loaders.png') }});"></div>
     </div>
 
     <div class="page-wrapper">
@@ -104,8 +104,8 @@
             <div class="container-fluid">
                 <div class="main-header__inner">
                     <div class="main-header__logo logo-wallox">
-                        <a href="index.html">
-                            <img src="assets/images/logo4.png" alt="wallox HTML" width="202">
+                        <a href="{{ url('/') }}">
+                            <img src="{{ asset('assets/images/logo4.png') }}" alt="wallox HTML" width="202">
                         </a>
                     </div>
                     <nav class="main-header__nav main-menu">
@@ -119,7 +119,7 @@
                                 <a href="{{ url('/about') }}">About Us</a>
                             </li>
                             <li>
-                                <a href="{{ url('/services') }}">Services</a>
+                                <a href="{{ route('all_service') }}">Services</a>
                             </li>
                             <li>
                                 <a href="{{ url('/project') }}">Project</a>
@@ -138,11 +138,97 @@
                             </li>
                         </ul>
                     </nav>
+                    
                     <div class="main-header__right">
                         <div class="main-header__right__info">
                             <a href="#" class="search-toggler main-header__right__info__item"><i class="icon-search" aria-hidden="true"></i></a>
-                            <a href="cart.html" class="main-header__right__info__item"><i class="icon-cart" aria-hidden="true"></i></a>
                         </div>
+
+                        <!-- Authentication Links -->
+                        <nav class="main-header__nav main-menu" style="margin-right: 20px; margin-left: 20px;">
+                            <ul class="main-menu__list">
+                                <li class="dropdown">
+                                    <a href="#!"><i class="bi bi-person-fill"></i>
+                                        @auth
+                                            Hi, {{ explode(' ', Auth::user()->name)[0] }}
+                                        @else
+                                            Account
+                                        @endauth
+                                    </a>
+                                    <ul class="sub-menu">
+                                        @guest
+                                            @if (Route::has('login'))
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                                </li>
+                                            @endif
+
+                                            @if (Route::has('register'))
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                </li>
+                                            @endif
+                                            @else
+                                                @if(Auth::user() && Auth::user()->is_admin)
+                                                    <li class="nav-item dropdown">
+                                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                            {{ __('Messages') }}
+                                                        </a>
+                                                        <ul>                                                
+                                                            <li class="dropdown">
+                                                                <a href="{{ route('messages') }}">{{ __('All Messages') }}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="nav-item dropdown">
+                                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                            {{ __('Categories') }}
+                                                        </a>
+                                                        <ul>                                                
+                                                            <li class="dropdown">
+                                                                <a href="{{ route('all_categories') }}">{{ __('All Category') }}</a>
+                                                            </li>
+                                                             <li class="dropdown">
+                                                                <a href="{{ route('create_category') }}">{{ __('Create') }}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="nav-item dropdown">
+                                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                            {{ __('Posts') }}
+                                                        </a>
+                                                        <ul>                                                
+                                                            <li class="dropdown">
+                                                                <a href="{{ route('all_posts') }}">{{ __('All Post') }}</a>
+                                                            </li>
+                                                             <li class="dropdown">
+                                                                <a href="{{ route('create_posts') }}">{{ __('Create') }}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                @endif
+                                                <li class="nav-item dropdown">
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault();
+                                                                        document.getElementById('logout-form').submit();">
+                                                            {{ __('Logout') }}
+                                                    </a>
+
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                        @csrf
+                                                    </form>
+                                                </li>                                                                                           
+                                            @endguest
+                                        </ul>                                    
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="main-header__right__info">
+                            <a href="cart.html" class="main-header__right__info__item"><i class="icon-cart" aria-hidden="true"></i></a>
+                        </div>                        
+
+
+                        
                         <div class="main-header__right__link">
                             <a href="{{ url('/contact') }}" class="main-header__right__btn wallox-btn">book appointment<i class="icon-arrow-point-to-right"></i></a>
                         </div>
@@ -159,13 +245,13 @@
 
 
         <footer class="main-footer">
-            <div class="main-footer__bg" style="background-image: url(assets/images/shapes/footer-bg-1-1.png);"></div>
+            <div class="main-footer__bg" style="background-image: url({{ asset('assets/images/shapes/footer-bg-1-1.png') }});"></div>
             <div class="main-footer__top wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
                 <div class="container">
                     <div class="main-footer__top__inner">
                         <div class="main-footer__logo">
                             <a href="index.html" class="footer-logo">
-                                <img src="assets/images/logo.png" width="202" alt="Wallox HTML Template">
+                                <img src="{{ asset('assets/images/logo.png') }}" width="202" alt="Wallox HTML Template">
                             </a>
                         </div>
                         <div class="main-footer__form">
@@ -243,52 +329,6 @@
                                         <i class="icon-message"></i>
                                         <a href="mailto:info@wallox.com" class="footer-widget__contact__link">israeljoshua026@gmail.com</a>
                                     </li>
-                                    <li>
-                                         <!-- Authentication Links -->
-                                    @guest
-                                        @if (Route::has('login'))
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                            </li>
-                                        @endif
-
-                                        @if (Route::has('register'))
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                            </li>
-                                        @endif
-                                    @else
-                                        <li class="nav-item dropdown">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                {{ Auth::user()->name }}
-                                            </a>
-
-                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
-                                                </a>
-
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                    @csrf
-                                                </form>
-                                            </div>
-                                        </li>
-
-                                        <li class="nav-item dropdown">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                {{ __('Messages') }}
-                                            </a>
-
-                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                <a class="dropdown-item" href="{{ route('messages') }}">
-                                                    {{ __('All Messages') }} 
-                                                </a>
-                                            </div>
-                                        </li>
-                                    @endguest
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -316,7 +356,7 @@
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/logo.png" width="155" alt=" wallox image"></a>
+                <a href="index.html" aria-label="logo image"><img src="{{ asset('assets/images/logo.png') }}" width="155" alt=" wallox image"></a>
             </div>
             <!-- /.logo-box -->
             <div class="mobile-nav__container"></div>
@@ -368,36 +408,36 @@
 
     <!--  ALl JS Plugins =====================
     ====================================== -->
-    <script src="assets/vendors/jquery/jquery-3.7.0.min.js"></script>
-    <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
-    <script src="assets/vendors/jarallax/jarallax.min.js"></script>
-    <script src="assets/vendors/jquery-ui/jquery-ui.js"></script>
-    <script src="assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
-    <script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
-    <script src="assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
-    <script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="assets/vendors/jquery-validate/jquery.validate.min.js"></script>
-    <script src="assets/vendors/nouislider/nouislider.min.js"></script>
-    <script src="assets/vendors/tiny-slider/tiny-slider.js"></script>
-    <script src="assets/vendors/wnumb/wNumb.min.js"></script>
-    <script src="assets/vendors/owl-carousel/js/owl.carousel.min.js"></script>
-    <script src="assets/vendors/slick-carousel/slick.min.js"></script>
-    <script src="assets/vendors/wow/wow.js"></script>
-    <script src="assets/vendors/imagesloaded/imagesloaded.min.js"></script>
-    <script src="assets/vendors/isotope/isotope.js"></script>
-    <script src="assets/vendors/countdown/countdown.min.js"></script>
-    <script src="assets/vendors/jquery-circleType/jquery.circleType.js"></script>
-    <script src="assets/vendors/jquery-lettering/jquery.lettering.min.js"></script>
+    <script src="{{ asset('assets/vendors/jquery/jquery-3.7.0.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap-select/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jarallax/jarallax.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery-ui/jquery-ui.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery-appear/jquery.appear.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery-validate/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/nouislider/nouislider.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/tiny-slider/tiny-slider.js') }}"></script>
+    <script src="{{ asset('assets/vendors/wnumb/wNumb.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/owl-carousel/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/slick-carousel/slick.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/wow/wow.js') }}"></script>
+    <script src="{{ asset('assets/vendors/imagesloaded/imagesloaded.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/isotope/isotope.js') }}"></script>
+    <script src="{{ asset('assets/vendors/countdown/countdown.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery-circleType/jquery.circleType.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery-lettering/jquery.lettering.min.js') }}"></script>
 
     <!-- Gsap js -->
-    <script src="assets/vendors/gsap/splittext.min.js"></script>
-    <script src="assets/vendors/gsap/ScrollTrigger.min.js"></script>
-    <script src="assets/vendors/gsap/gsap.js"></script>
-    <script src="assets/js/wallox-gsap.js"></script>
+    <script src="{{ asset('assets/vendors/gsap/splittext.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/gsap/ScrollTrigger.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/gsap/gsap.js') }}"></script>
+    <script src="{{ asset('assets/js/wallox-gsap.js') }}"></script>
 
     <!-- template js -->
-    <script src="assets/js/wallox.js"></script>
+    <script src="{{ asset('assets/js/wallox.js') }}"></script>
+    @yield('scripts')
 </body>
-
 </html>

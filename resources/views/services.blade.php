@@ -18,26 +18,28 @@
         <section class="service-page">
             <div class="container">
                 <div class="row gutter-y-30">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
-                            <div class="service-card__image">
-                                <img src="assets/images/service/service-1-1.jpg" alt="Room Wallpapers">
-                                <div class="service-card__image__item">
-                                    <div class="service-card__hover__box service-card__hover__box--1"></div>
-                                    <div class="service-card__hover__box service-card__hover__box--2"></div>
-                                    <div class="service-card__hover__box service-card__hover__box--3"></div>
-                                    <div class="service-card__hover__box service-card__hover__box--4"></div>
+                    @foreach($categories as $cat)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="service-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                <div class="service-card__image">
+                                    <img src="{{asset('public/image/categories/'. $cat->image)}}" alt="{{$cat->name}}" style="height: 450px; width: 100%; object-fit: cover;">
+                                    <div class="service-card__image__item">
+                                        <div class="service-card__hover__box service-card__hover__box--1"></div>
+                                        <div class="service-card__hover__box service-card__hover__box--2"></div>
+                                        <div class="service-card__hover__box service-card__hover__box--3"></div>
+                                        <div class="service-card__hover__box service-card__hover__box--4"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="service-card__content">
-                                <div class="service-card__title__box">
-                                    <h3 class="service-card__title"><a href="service-d-room-wallpapers.html">Room Wallpapers</a></h3>
+                                <div class="service-card__content">
+                                    <div class="service-card__title__box">
+                                        <h3 class="service-card__title"><a href="service-d-room-wallpapers.html">{{$cat->name}}</a></h3>
+                                    </div>
+                                    <div class="service-card__icon"><i class="icon-wallpaper"></i></div>
                                 </div>
-                                <div class="service-card__icon"><i class="icon-wallpaper"></i></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
+                    @endforeach
+                    <!-- <div class="col-lg-4 col-md-6">
                         <div class="service-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
                             <div class="service-card__image">
                                 <img src="assets/images/service/service-1-2.jpg" alt="wall sheets">
@@ -131,12 +133,12 @@
                                 <div class="service-card__icon"><i class="icon-park"></i></div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
 
-        <!-- <div class="why-choose">
+        <div class="why-choose">
             <div class="why-choose__bg" style="background-image: url(assets/images/shapes/why-chose-us.png);"></div>
             <div class="container">
                 <div class="row gutter-y-30">
@@ -186,5 +188,5 @@
             <div class="why-choose__shape why-choose__shape--two">
                 <img src="assets/images/shapes/angle-1-2.png" alt>
             </div>
-        </div> -->
+        </div>
 @endsection

@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.header')
 
 @section('content')
-<div class="container">
+<div class="container" style="margin-bottom: 20px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     @if ($contacts)
-                        @foreach ($contacts as $contact)
+                        @foreach ($contacts->sortByDesc('created_at') as $contact)
                         <div class="alert alert-success" role="alert">
                             <p>ID:  {{ $contact->id}}</p>
                             <p>SENDER:  {{ $contact->name }}</p>

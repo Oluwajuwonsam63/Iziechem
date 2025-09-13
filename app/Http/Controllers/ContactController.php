@@ -14,8 +14,13 @@ class ContactController extends Controller
      */
     public function index()
     {
+        $title = "Messages| IZIECHEM – Experts in Painting & Screeding";
+        $keywords = "Messages IZIECHEM, painting company Nigeria, professional wall screeding, interior services Nigeria";
+        $description = "Learn more about IZIECHEM, a leading name in painting, screeding, and interior decoration. We are dedicated to delivering quality wall designs and premium paint products in Nigeria.";
+        $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
+
         $contacts = contact::all();
-        return view('admin.messages', compact('contacts'));
+        return view('admin.messages', compact('contacts', 'page_data'));
     }
 
     /**
