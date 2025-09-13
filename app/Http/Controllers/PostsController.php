@@ -26,6 +26,18 @@ class PostsController extends Controller
         return view('posts.index', compact('posts', 'page_data'));
     }
 
+    public function updates()
+    {
+        $title= "All Posts";
+        $keywords= "Admin All Posts";
+        $description="All posts";
+        $page_data= ['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];// associative array
+
+        $posts = Posts::all();
+        //dd($posts);
+        return view('updates', compact('posts', 'page_data'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

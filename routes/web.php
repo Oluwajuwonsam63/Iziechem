@@ -28,7 +28,7 @@ Route::get('/about', [App\Http\Controllers\WebController::class, 'about'])->name
 Route::get('/service', [App\Http\Controllers\CategoriesController::class, 'service'])->name('all_service');
 Route::get('/project', [App\Http\Controllers\WebController::class, 'project'])->name('project');
 Route::get('/shop', [App\Http\Controllers\WebController::class, 'shop'])->name('shop');
-Route::get('/updates', [App\Http\Controllers\WebController::class, 'updates'])->name('updates');
+Route::get('/updates', [App\Http\Controllers\PostsController::class, 'updates'])->name('all_updates');
 Route::get('/contact', [App\Http\Controllers\WebController::class, 'contact'])->name('contact');
 
 

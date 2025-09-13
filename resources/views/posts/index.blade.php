@@ -39,8 +39,8 @@
             <td>{{$post->keywords}}</td>
             <td>{{$post->meta_desc}}</td>
             <td><img src="{{asset('public/image/posts/'. $post->image)}}" alt="" style="max-width: 50px;"></td>
-            <td>{{substr($post->description, 0, 100)}}... <a href="{{route('show_posts', $post->id)}}">more</a></td>
-            <td>{{$post->created_at->diffForHumans()}}</td>
+            <td style="line-height: 1;">{{substr($post->description, 0, 100)}}... <a href="{{route('show_posts', $post->id)}}">more</a></td>
+            <td>{{$post->created_at->format('d M, Y')}}</td>
             <td class="d-flex flex-column gap-2">
                 <a href="{{route('edit_posts', $post->id)}}" class="btn btn-warning">edit</a>
                 <a href="{{route('delete_posts', $post->id)}}" class="btn btn-danger">Delete</a>

@@ -18,7 +18,7 @@
         <section class="service-page">
             <div class="container">
                 <div class="row gutter-y-30">
-                    @foreach($categories as $cat)
+                    @foreach($categories->sortByDesc('created_at') as $cat)
                         <div class="col-lg-4 col-md-6">
                             <div class="service-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
                                 <div class="service-card__image">

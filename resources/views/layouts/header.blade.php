@@ -122,7 +122,7 @@
                                 <a href="{{ route('all_service') }}">Services</a>
                             </li>
                             <li>
-                                <a href="{{ url('/project') }}">Project</a>
+                                <a href="{{ route('all_updates') }}">Project</a>
                             </li>
 {{--                            <li>--}}
 {{--                                <a href="#">Page</a>--}}
