@@ -923,4 +923,48 @@
     }
   });
 
+  // Mobile Navigation
+  if ($(".mobile-nav__wrapper").length) {
+    const mobileNavToggler = $(".mobile-nav__toggler");
+    const mobileNavWrapper = $(".mobile-nav__wrapper");
+    const mobileNavOverlay = $(".mobile-nav__overlay");
+    const mobileNavClose = $(".mobile-nav__close");
+    const body = $("body");
+
+    // Toggle mobile menu
+    function toggleMobileNav() {
+      mobileNavWrapper.toggleClass("active");
+      body.toggleClass("mobile-nav-visible");
+    }
+
+    mobileNavToggler.on("click", function (e) {
+      e.preventDefault();
+      toggleMobileNav();
+    });
+
+    mobileNavOverlay.on("click", toggleMobileNav);
+    mobileNavClose.on("click", toggleMobileNav);
+
+    // Mobile Dropdowns
+    $(".mobile-nav__container .dropdown > a").each(function () {
+      const $this = $(this);
+      const $parent = $this.parent();
+      const $submenu = $parent.find("ul").first();
+
+      $this.on("click", function (e) {
+        e.preventDefault();
+        
+        $parent.toggleClass("active");
+        
+        if ($submenu.is(":visible")) {
+          $submenu.slideUp(300);
+        } else {
+          $parent.siblings().find("ul").slideUp(300);
+          $parent.siblings().removeClass("active");
+          $submenu.slideDown(300);
+        }
+      });
+    });
+  }
+
 })(jQuery);

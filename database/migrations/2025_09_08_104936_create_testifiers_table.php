@@ -15,7 +15,7 @@ class CreateTestifiersTable extends Migration
     {
         Schema::create('testifiers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->integer('user_id');
             $table->string('name');
             $table->string('image')->nullable();
             $table->tinyInteger('rating')->check('rating >= 1 AND rating <= 5');

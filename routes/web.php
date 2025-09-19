@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\testifiers;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,23 +19,32 @@ Route::get('/', function () {
         $keywords = "paint production Nigeria, wall screeding, interior painting, exterior painting, decorative finishes, IZIECHEM";
         $description = "Welcome to IZIECHEM, Nigeria’s trusted provider of premium paint production, wall screeding, interior & exterior painting, and decorative finishes. We create smooth, beautiful, and lasting walls. We Give Life to Dead Walls";
         $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
-    return view('index', compact('page_data'));
+
+        $testifiers = Testifiers::all();
+    return view('index', compact('page_data', 'testifiers'));
 });
 
 Route::post('/contact/send', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
 
 // navbar routes
 Route::get('/about', [App\Http\Controllers\WebController::class, 'about'])->name('about');
-Route::get('/service', [App\Http\Controllers\CategoriesController::class, 'service'])->name('all_service');
+Route::get('/service', [App\Http\Controllers\WebController::class, 'services'])->name('services');
 Route::get('/project', [App\Http\Controllers\WebController::class, 'project'])->name('project');
 Route::get('/shop', [App\Http\Controllers\WebController::class, 'shop'])->name('shop');
-Route::get('/updates', [App\Http\Controllers\PostsController::class, 'updates'])->name('all_updates');
+Route::get('/updates', [App\Http\Controllers\WebController::class, 'updates'])->name('updates');
 Route::get('/contact', [App\Http\Controllers\WebController::class, 'contact'])->name('contact');
 
+
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\Auth\GoogleController;
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Google OAuth Routes
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], function() {
 Route::get('/messages', [App\Http\Controllers\ContactController::class, 'index'])->name('messages');
@@ -57,4 +67,13 @@ Route::post('/posts/create', [App\Http\Controllers\PostsController::class, 'stor
 Route::post('/posts/{post}/update', [App\Http\Controllers\PostsController::class, 'update'])->name('update_posts');
 Route::get('/posts/{id}/delete',[App\Http\Controllers\PostsController::class,'destroy'])->name('delete_posts');
 Route::get('/posts/{id}/details',[App\Http\Controllers\PostsController::class,'show'])->name('show_posts');
+
+// Testimonial Route
+Route::get('/testimonials', [App\Http\Controllers\TestifiersController::class, 'index'])->name('all_testifiers');
+Route::get('/testimonials/{testifier}/edit', [App\Http\Controllers\TestifiersController::class, 'edit'])->name('edit_testifiers');
+Route::get('/testimonials/create', [App\Http\Controllers\TestifiersController::class, 'create'])->name('create_testifiers');
+Route::post('/testimonials/create', [App\Http\Controllers\TestifiersController::class, 'store'])->name('store_testifiers');
+Route::post('/testimonials/{testifier}/update', [App\Http\Controllers\TestifiersController::class, 'update'])->name('update_testifiers');
+Route::get('/testimonials/{id}/delete',[App\Http\Controllers\TestifiersController::class,'destroy'])->name('delete_testifiers');
+Route::get('/testimonials/{id}/details',[App\Http\Controllers\TestifiersController::class,'show'])->name('show_testifiers');
 });

@@ -25,17 +25,17 @@ class CategoriesController extends Controller
         return view('categories.index', compact('categories', 'page_data'));
     }
 
-        public function service()
-    {
-        $title="All Categories";
-        $keywords= "Admin All Categories";
-        $description="All categories";
-        $page_data= ['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];// associative array
+    //     public function service()
+    // {
+    //     $title="All Categories";
+    //     $keywords= "Admin All Categories";
+    //     $description="All categories";
+    //     $page_data= ['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];// associative array
 
-        $categories = Categories::all();
-        //dd($categories);
-        return view('services', compact('categories', 'page_data'));
-    }
+    //     $categories = Categories::all();
+    //     //dd($categories);
+    //     return view('services', compact('categories', 'page_data'));
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -49,6 +49,7 @@ class CategoriesController extends Controller
         $page_data=['title'=>$title, 'keywords'=>$keywords];
         $description="create category";
         $page_data=['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];
+        
         $categories = categories::all();
         return view('categories.create', compact('page_data'));
     }

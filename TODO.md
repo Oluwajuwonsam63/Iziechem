@@ -1,0 +1,6 @@
+- [x] Update resources/views/auth/login.blade.php to add position: relative to the section style
+- [x] Add video element as background inside the section with autoplay, muted, loop, and proper styling
+- [x] Adjust video to fit the screen using fixed positioning
+- [ ] Test the login page to ensure video background works
+- [ ] Update resources/views/auth/register.blade.php to add video background with autoplay, muted, loop and styling to fit screen
+- [ ] Test the register page to ensure video background works and form fits well

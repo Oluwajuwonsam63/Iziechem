@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categories;
+use App\Models\Posts;
+use App\Models\Testifiers;
 
 class WebController extends Controller
 {
@@ -17,7 +20,9 @@ class WebController extends Controller
             $keywords = "about IZIECHEM, painting company Nigeria, professional wall screeding, interior services Nigeria";
             $description = "Learn more about IZIECHEM, a leading name in painting, screeding, and interior decoration. We are dedicated to delivering quality wall designs and premium paint products in Nigeria.";
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
-        return view('about', compact('page_data'));
+
+            $testifiers = Testifiers::all();
+        return view('about', compact('page_data', 'testifiers'));
     }
     public function services()
     {
@@ -25,7 +30,9 @@ class WebController extends Controller
             $keywords = "IZIECHEM services, paint production Nigeria, wall screeding, interior painting, exterior painting, decorative finishes";
             $description = "Discover the range of services offered by IZIECHEM, including high-quality paint production, expert wall screeding, and exceptional interior and exterior painting solutions. We bring life to your walls with our decorative finishes.";
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
-        return view('services', compact('page_data'));
+        
+            $categories = Categories::all();
+        return view('services', compact('page_data', 'categories'));
     }
     public function project()
     {
@@ -49,7 +56,9 @@ class WebController extends Controller
             $keywords = "painting tips Nigeria, interior design updates, wall decoration blog, IZIECHEM news";
             $description = "Stay updated with the latest painting trends, wall design ideas, and interior decoration tips. Read helpful guides and news from IZIECHEM.";
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
-        return view('updates', compact('page_data'));
+
+            $posts = Posts::all();
+        return view('posts.updates', compact('page_data', 'posts'));
     }
     public function contact()
     {

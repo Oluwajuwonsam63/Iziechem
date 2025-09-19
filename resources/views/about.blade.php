@@ -79,7 +79,7 @@
                                         <p class="about-one__client__text">Satisfied Client ratings</p>
                                     </div>
                                 </div>
-                                <a href="blog-details.html" class="wallox-btn wallox-btn--base">more about us</a>
+                                <a href="{{url('/updates')}}" class="wallox-btn wallox-btn--base">more about us</a>
                             </div>
                         </div>
                     </div>
@@ -178,11 +178,12 @@
                     }
                 }
             }'>
+                        @foreach($testifiers as $testifier)
                         <div class="item">
                             <div class="testimonials-card wow fadeInUp" data-wow-duration='000ms' data-wow-delay='000ms'>
                                 <div class="testimonials-card__top">
                                     <div class="testimonials-card__image">
-                                        <img src="assets/images/resources/test1.png" alt="Abdul-Bari">
+                                        <img src="{{asset('public/image/testifiers/'. $testifier->image)}}" alt="{{$testifier->name}}" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;">
                                     </div>
                                     <div class="testimonials-card__top__video">
                                         <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" class="testimonials-card__video video-popup">
@@ -190,11 +191,11 @@
                                         </a>
                                     </div>
                                 </div>
-                                <p class="testimonials-card__text">“IZIECHEM transformed my home completely. The wall screeding and painting were flawless, and the colors still look fresh months later. Truly professional service!”</p>
+                                <p class="testimonials-card__text">“{{$testifier->message}}”</p>
                                 <div class="testimonials-card__content">
                                     <div class="testimonials-card__author">
-                                        <h4 class="testimonials-card__author__title">Abdul-Bari</h4>
-                                        <span class="testimonials-card__author__dec">Client</span>
+                                        <h4 class="testimonials-card__author__title">{{$testifier->name}}</h4>
+                                        <span class="testimonials-card__author__dec">{{$testifier->position ?? 'Client'}}</span>
                                     </div>
                                     <div class="testimonials-card__rating">
                                         <i class="fa fa-star"></i>
@@ -209,7 +210,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
+                        @endforeach
+                        <!-- <div class="item">
                             <div class="testimonials-card wow fadeInUp" data-wow-duration='000ms' data-wow-delay='000ms'>
                                 <div class="testimonials-card__top">
                                     <div class="testimonials-card__image">
@@ -332,8 +334,8 @@
                                     <i class="icon-quite1"></i>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
+                        </div> -->
+                        <!-- <div class="item">
                             <div class="testimonials-card wow fadeInUp" data-wow-duration='000ms' data-wow-delay='000ms'>
                                 <div class="testimonials-card__top">
                                     <div class="testimonials-card__image">
@@ -363,7 +365,7 @@
                                     <i class="icon-quite1"></i>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

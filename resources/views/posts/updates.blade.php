@@ -26,7 +26,8 @@
                                 <div class="col-md-6">
                                     <div class="blog-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
                                         <div class="blog-card__image">
-                                            <img src="assets/images/blog/blog-1-1.jpg" alt="cupidatat nonproident, sunt in culpa qui officia deserunt">
+                                            <!-- <img src="assets/images/blog/blog-1-1.jpg" alt="cupidatat nonproident, sunt in culpa qui officia deserunt"> -->
+                                            <img src="{{asset('public/image/posts/'. $post->image)}}" alt="" style="height: 250px; width: 100%; object-fit: cover;">
                                             <a href="blog-details-right.html" class="blog-card__image__item">
                                                 <div class="blog-card__hover__box blog-card__hover__box--1"></div>
                                                 <div class="blog-card__hover__box blog-card__hover__box--2"></div>
@@ -46,6 +47,15 @@
                                     </div>
                                 </div>
                             @endforeach
+                                <div class="col-12" style="align-items: center; display: flex; justify-content: center; margin-top: 20px;">
+                                    <ul class="post-pagination list-unstyled justify-content-start">
+                                        <li><a href="#"><span class="post-pagination__icon"><i class="icon-angle-right"></i></span></a></li>
+                                        <li><a href="#">01</a></li>
+                                        <li><a href="#">02</a></li>
+                                        <li><a href="#">03</a></li>
+                                        <li class="active"><a href="#"><span class="post-pagination__icon"><i class="icon-angle-left"></i></span></a></li>
+                                    </ul>
+                                </div>
                             <!-- <div class="col-md-6">
                                 <div class="blog-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='200ms'>
                                     <div class="blog-card__image">

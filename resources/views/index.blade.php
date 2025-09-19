@@ -498,8 +498,9 @@
                 <img src="assets/images/shapes/angle-1-2.png" alt>
             </div>
         </section>
-
-            @include('testimonials')
+            
+                @include('includes.testimonials')
+            
 
         <div class="instagram-one instagram-one--three">
             <div class="container-fluid">
