@@ -255,6 +255,23 @@
                                                         </li>
                                                     </ul>
                                                 </li>
+                                                <li class="nav-item dropdown">
+                                                    <a id="navbarDropdown" class="nav-link dropdown-toggle"
+                                                        href="#" role="button" data-bs-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false" v-pre>
+                                                        {{ __('Teams') }}
+                                                    </a>
+                                                    <ul>
+                                                        <li class="dropdown">
+                                                            <a
+                                                                href="{{ route('all_teams') }}">{{ __('All Teams') }}</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a
+                                                                href="{{ route('create_teams') }}">{{ __('Create') }}</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
                                             @endif
                                             <li class="nav-item dropdown">
                                                 <a class="dropdown-item" href="{{ route('logout') }}"

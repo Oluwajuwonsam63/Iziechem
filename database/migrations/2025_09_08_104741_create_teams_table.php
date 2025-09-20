@@ -20,17 +20,17 @@ class CreateTeamsTable extends Migration
             $table->string('role');
             $table->text('bio');
             $table->string('image');
-            $table->string('sign')->nullable();
-            $table->integer('phone')->nullable();
+            $table->string('sign')->nullable('null');
+            $table->integer('phone', 20)->nullable('null');
             $table->text('email');
-            $table->text('location');
+            $table->text('location')->nullable('null');
         // Three fixed social media links
-            $table->string('facebook')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('youtube')->nullable();
-            $table->string('linkedIn')->nullable();
-            $table->string('x')->nullable();
-            $table->string('tiktok')->nullable();
+            $table->string('facebook')->nullable('#');
+            $table->string('instagram')->nullable('#');
+            $table->string('youtube')->nullable('#');
+            $table->string('linkedIn')->nullable('#');
+            $table->string('x')->nullable('#');
+            $table->string('tiktok')->nullable('#');
             $table->timestamps();
         });
     }

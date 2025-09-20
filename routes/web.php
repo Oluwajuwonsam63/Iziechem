@@ -76,4 +76,13 @@ Route::post('/testimonials/create', [App\Http\Controllers\TestifiersController::
 Route::post('/testimonials/{testifier}/update', [App\Http\Controllers\TestifiersController::class, 'update'])->name('update_testifiers');
 Route::get('/testimonials/{id}/delete',[App\Http\Controllers\TestifiersController::class,'destroy'])->name('delete_testifiers');
 Route::get('/testimonials/{id}/details',[App\Http\Controllers\TestifiersController::class,'show'])->name('show_testifiers');
+
+// Teams Route
+Route::get('/teams', [App\Http\Controllers\TeamsController::class, 'index'])->name('all_teams');
+Route::get('/teams/{team}/edit', [App\Http\Controllers\TeamsController::class, 'edit'])->name('edit_teams');
+Route::get('/teams/create', [App\Http\Controllers\TeamsController::class, 'create'])->name('create_teams');
+Route::post('/teams/create', [App\Http\Controllers\TeamsController::class, 'store'])->name('store_teams'); 
+Route::post('/teams/{team}/update', [App\Http\Controllers\TeamsController::class, 'update'])->name('update_teams');
+Route::get('/teams/{id}/delete',[App\Http\Controllers\TeamsController::class,'destroy'])->name('delete_teams');
+Route::get('/teams/{id}/details',[App\Http\Controllers\TeamsController::class,'show'])->name('show_teams');
 });

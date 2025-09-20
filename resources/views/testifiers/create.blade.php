@@ -5,16 +5,7 @@
         <section class="login-page">
             <div class="container">
                 <div class="row gutter-y-30 align-items-center">
-                    <div class="col-xl-6">
-                        <div class="login-page__left wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                            <div class="login-page__thumb real-image">
-                                <img src="{{ asset('assets/images/resources/work7.png') }}" alt="login image">
-                            </div>
-                            <div class="login-page__thumb-two">
-                                <img src="{{ asset('assets/images/resources/work8.png') }}" alt="wallox image">
-                            </div>
-                        </div>
-                    </div>
+                        @include('includes.create')
                     <div class="col-xl-6">
                         <div class="login-page__right wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='500ms'>
                             <div class="login-page__login-box">
