@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Posts;
+use App\Models\Teams;
 use App\Models\Testifiers;
 
 class WebController extends Controller
@@ -21,8 +22,9 @@ class WebController extends Controller
             $description = "Learn more about IZIECHEM, a leading name in painting, screeding, and interior decoration. We are dedicated to delivering quality wall designs and premium paint products in Nigeria.";
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
 
-            $testifiers = Testifiers::all();
-        return view('about', compact('page_data', 'testifiers'));
+            $testifiers = Testifiers::latest()->take(5)->get();
+            $teams = teams::oldest()->take(3)->get();
+        return view('about', compact('page_data', 'testifiers', 'teams'));
     }
     public function services()
     {
@@ -32,7 +34,7 @@ class WebController extends Controller
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
         
             $categories = Categories::all();
-        return view('services', compact('page_data', 'categories'));
+        return view('categories.services', compact('page_data', 'categories'));
     }
     public function project()
     {
@@ -40,7 +42,7 @@ class WebController extends Controller
             $keywords = "painting projects Nigeria, completed wall designs, interior decoration samples, IZIECHEM portfolio";
             $description = "Browse our completed projects in painting, wall screeding, and interior design. Each project showcases IZIECHEM’s dedication to beauty, quality, and customer satisfaction.";
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
-        return view('project', compact('page_data'));
+        return view('projects.project', compact('page_data'));
     }
     public function shop()
     {

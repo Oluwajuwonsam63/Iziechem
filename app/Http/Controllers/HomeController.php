@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Testifiers;
+use App\Models\categories;
 
 class HomeController extends Controller
 {
@@ -28,7 +30,8 @@ class HomeController extends Controller
             $description = "Welcome to the IZIECHEM Admin Dashboard. Here you can manage blog posts, categories, and view user messages. Stay organized and keep your content updated with ease.";
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
 
-            $testifiers = \App\Models\Testifiers::all();
-        return view('index' , compact('page_data', 'testifiers'));
+            $testifiers = Testifiers::all();
+            $categories = categories::all();
+        return view('dashboard' , compact('page_data', 'testifiers', 'categories'));
     }
 }

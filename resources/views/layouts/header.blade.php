@@ -128,9 +128,80 @@
                             <img src="{{ asset('assets/images/logo4.png') }}" alt="wallox HTML" width="202">
                         </a>
                     </div>
+
+                    
                     <nav class="main-header__nav main-menu">
                         <ul class="main-menu__list">
-
+                            @if (Auth::user() && Auth::user()->is_admin)
+                            <li class="dropdown space">
+                                <a href="#" class="dropdown-toggle">Dashboard</a>
+                                <ul class="sub-menu">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle">Messages</a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{ route('messages') }}">{{ __('All Messages') }}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle">Categories</a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{ route('all_categories') }}">{{ __('All Category') }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('create_category') }}">{{ __('Create') }}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle">Posts</a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{ route('all_posts') }}">{{ __('All Post') }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('create_posts') }}">{{ __('Create') }}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle">Testifier</a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{ route('all_testifiers') }}">{{ __('All Testifier') }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('create_testifiers') }}">{{ __('Create') }}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle">Teams</a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{ route('all_teams') }}">{{ __('All Teams') }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('create_teams') }}">{{ __('Create') }}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle">Project</a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{ route('all_projects') }}">{{ __('All_Project') }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('create_projects') }}">{{ __('Create') }}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            @endif
                             <li class="megamenu">
                                 <a href="{{ url('/') }}">Home</a>
                             </li>
@@ -138,17 +209,28 @@
                             <li>
                                 <a href="{{ url('/about') }}">About Us</a>
                             </li>
+                            {{-- <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle"
+                                    href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ __('Portfolio') }}
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a
+                                            href="{{ url('/service') }}">{{ __('Services') }}</a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="{{ url('/project') }}">{{ __('Project') }}</a>
+                                    </li>
+                                </ul>
+                            </li> --}}
+                            {{-- <li>
+                                <a href="{{ url('/shop') }}">Shop</a>
+                            </li> --}}
                             <li>
                                 <a href="{{ url('/service') }}">Services</a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/project') }}">Project</a>
-                            </li>
-                            {{--                            <li> --}}
-                            {{--                                <a href="#">Page</a> --}}
-                            {{--                            </li> --}}
-                            <li>
-                                <a href="{{ url('/shop') }}">Shop</a>
                             </li>
                             <li>
                                 <a href="{{ url('/updates') }}">Updates</a>
@@ -269,6 +351,23 @@
                                                         <li class="dropdown">
                                                             <a
                                                                 href="{{ route('create_teams') }}">{{ __('Create') }}</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="nav-item dropdown">
+                                                    <a id="navbarDropdown" class="nav-link dropdown-toggle"
+                                                        href="#" role="button" data-bs-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false" v-pre>
+                                                        {{ __('Project') }}
+                                                    </a>
+                                                    <ul>
+                                                        <li class="dropdown">
+                                                            <a
+                                                                href="{{ route('all_projects') }}">{{ __('All_Project') }}</a>
+                                                        </li>
+                                                        <li class="dropdown">
+                                                            <a
+                                                                href="{{ route('create_projects') }}">{{ __('Create') }}</a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -466,10 +565,45 @@
             </div>
             <!-- /.mobile-nav__container -->
 
+            <ul class="mobile-nav__sign">
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <div class="footer-widget footer-widget--about wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                <a href="{{ route('login') }}" class="wallox-btn footer-widget__btn">{{ __('Sign in') }}
+                                    {{-- <i class="icon-up-right-arrow1"></i> --}}
+                                </a>
+                            </div>                        
+                        </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <div class="footer-widget footer-widget--about wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                <a href="{{ route('register') }}" class="wallox-btn footer-widget__btn">{{ __('Sign up') }}
+                                    {{-- <i class="icon-up-right-arrow1"></i> --}}
+                                </a>
+                            </div>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item">
+                        <li class="nav-item">
+                            <div class="footer-widget footer-widget--about wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                                <a href="{{ route('logout') }}" class="wallox-btn footer-widget__btn"
+                                    onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                @endguest
+            </ul>
+
             <ul class="mobile-nav__contact list-unstyled">
-                    <li>
-                        <button><a href="mailto:needhelp@wallox.com" class="wallox-btn wallox-btn--base">Sign in</a></button>
-                    </li>
                 <li>
                     <i class="fa fa-envelope"></i>
                     <a href="mailto:needhelp@wallox.com">israeljoshua026@gmail.com</a>

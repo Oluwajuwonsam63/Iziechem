@@ -13,7 +13,7 @@
     </div>
 
     @include('includes.flash')
-    <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+    <div class="container float">
         <table class="table">
             <thead>
                 <tr class="table-dark">
@@ -29,13 +29,13 @@
                 @foreach($teams->sortByDesc('created_at') as $team)
                     <tr class="table-body">
                         <td>{{$team->user->name}}</td>
-                        <td>{{$team->role}}</td>
+                        <td>{{$team->name}}</td>
                         <td><img src="{{asset('public/image/teams/'. $team->image)}}" alt="" style="max-width: 50px;"></td>
-                        <td style="line-height: 1;">{{substr($team->bio, 0, 100)}}... <a href="{{route('show_testifiers', $team->id)}}">more</a></td>
+                        <td style="line-height: 1;">{{substr($team->bio, 0, 100)}}... <a href="{{route('show_teams', $team->id)}}">more</a></td>
                         <td>{{$team->created_at->format('d M, Y')}}</td>
                         <td class="d-flex flex-column gap-2">
-                            <a href="{{route('edit_testifiers', $team->id)}}" class="btn btn-warning">edit</a>
-                            <a href="{{route('delete_testifiers', $team->id)}}" class="btn btn-danger">Delete</a>
+                            <a href="{{route('edit_teams', $team->id)}}" class="btn btn-warning">edit</a>
+                            <a href="{{route('delete_teams', $team->id)}}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 @endforeach

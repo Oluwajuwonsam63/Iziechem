@@ -24,8 +24,8 @@
                                         <h5 class="hero-three__sub-title">Colors That Speak, Walls That Shine</h5>
                                         <h2 class="hero-three__title">Premium painting services that bring your vision to life</h2>
                                         <div class="hero-three__btn">
-                                            <a href="services.html" class="wallox-btn wallox-btn--base">our services</a>
-                                            <a href="services.html" class="wallox-btn wallox-btn--border">discover more</a>
+                                            <a href="{{ url('/service') }}" class="wallox-btn wallox-btn--base">our services</a>
+                                            <a href="{{ url('/updates') }}" class="wallox-btn wallox-btn--border">discover more</a>
                                         </div>
                                     </div>
                                 </div>
@@ -43,8 +43,8 @@
                                         <h5 class="hero-three__sub-title">Smooth Surfaces, Elegant Designs</h5>
                                         <h2 class="hero-three__title">Professional screeding that sets the stage for perfection</h2>
                                         <div class="hero-three__btn">
-                                            <a href="services.html" class="wallox-btn wallox-btn--base">our services</a>
-                                            <a href="services.html" class="wallox-btn wallox-btn--border">discover more</a>
+                                            <a href="{{ url('/service') }}" class="wallox-btn wallox-btn--base">our services</a>
+                                            <a href="{{ url('/updates') }}" class="wallox-btn wallox-btn--border">discover more</a>
                                         </div>
                                     </div>
                                 </div>
@@ -62,8 +62,8 @@
                                         <h5 class="hero-three__sub-title">Transform your space, one wall at a time</h5>
                                         <h2 class="hero-three__title">the best quality wallpapers for your home</h2>
                                         <div class="hero-three__btn">
-                                            <a href="services.html" class="wallox-btn wallox-btn--base">our services</a>
-                                            <a href="services.html" class="wallox-btn wallox-btn--border">discover more</a>
+                                            <a href="{{ url('/service') }}" class="wallox-btn wallox-btn--base">our services</a>
+                                            <a href="{{ url('/updates') }}" class="wallox-btn wallox-btn--border">discover more</a>
                                         </div>
                                     </div>
                                 </div>
@@ -141,7 +141,7 @@
                     <div class="col-lg-6">
                         <div class="about-two__left">
                             <div class="about-two__video-popup">
-                                <a href="https://www.youtube.com/@israeljoshua9080" class="about-two__video video-popup">
+                                <a href="https://www.youtube.com/watch?v=y_MIu6bFDl8" class="about-two__video video-popup">
                                     <i class="icon-polygon"></i>
                                 </a>
                             </div>
@@ -177,7 +177,7 @@
                             </div>
 
                             <div class="about-two__connect wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                                <a href="about.html" class="wallox-btn">more about us</a>
+                                <a href="{{ url('/about') }}" class="wallox-btn">more about us</a>
                                 <div class="about-two__call">
                                     <div class="about-two__call__icon">
                                         <i class="icon-telephone"></i>
@@ -213,93 +213,7 @@
                     <div class="service-three__text-slider__item"><img src="assets/images/shapes/portal.png" alt>quality paint</div>
                 </div>
             </div>
-            <div class="container">
-                <div class="service-three__top">
-                    <div class="row align-items-end">
-                        <div class="col-lg-8">
-                            <div class="sec-title">
-                                <div class="d-flex align-items-center justify-content-start">
-                                    <img class="sec-title__image" src="assets/images/shapes/sec-title-s-3.png" alt="iziechem">
-                                    <h6 class="sec-title__tagline bw-split-in-right">our best services</h6>
-                                </div>
-                                <h3 class="sec-title__title bw-split-in-up">Services We’re Offering</h3>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="service-three__top__btn">
-                                <a href="services.html" class="wallox-btn wallox-btn--border">view all Service</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row gutter-y-30">
-                    <div class="col-lg-6">
-                        <div class="service-three__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
-                            <div class="service-three__thumb">
-                                <img src="assets/images/service/service-3-1.jpg" alt="iziechem">
-                            </div>
-                            <div class="service-three__content">
-                                <div class="service-three__content__left">
-                                    <span class="service-three__content__number"></span>
-                                    <h4 class="service-three__content__title"><a href="service-d-room-wallpapers.html">Room Wallpapers</a></h4>
-                                </div>
-                                <div class="service-three__content__right">
-                                    <a href="service-d-room-wallpapers.html" class="wallox-btn wallox-btn--border">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="service-three__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                            <div class="service-three__thumb">
-                                <img src="assets/images/service/service-3-2.jpg" alt="iziechem">
-                            </div>
-                            <div class="service-three__content">
-                                <div class="service-three__content__left">
-                                    <span class="service-three__content__number"></span>
-                                    <h4 class="service-three__content__title"><a href="service-d-wall-painting.html">Wall Painting</a></h4>
-                                </div>
-                                <div class="service-three__content__right">
-                                    <a href="service-d-wall-painting.html" class="wallox-btn wallox-btn--border">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="service-three__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                            <div class="service-three__thumb">
-                                <img src="assets/images/service/service-3-3.jpg" alt="iziechem">
-                            </div>
-                            <div class="service-three__content">
-                                <div class="service-three__content__left">
-                                    <span class="service-three__content__number"></span>
-                                    <h4 class="service-three__content__title"><a href="service-d-interior-designing.html">interior designing</a></h4>
-                                </div>
-                                <div class="service-three__content__right">
-                                    <a href="service-d-interior-designing.html" class="wallox-btn wallox-btn--border">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="service-three__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='700ms'>
-                            <div class="service-three__thumb">
-                                <img src="assets/images/service/service-3-4.jpg" alt="iziechem">
-                            </div>
-                            <div class="service-three__content">
-                                <div class="service-three__content__left">
-                                    <span class="service-three__content__number"></span>
-                                    <h4 class="service-three__content__title"><a href="service-d-wall-sheets.html">wall sheets</a></h4>
-                                </div>
-                                <div class="service-three__content__right">
-                                    <a href="service-d-wall-sheets.html" class="wallox-btn wallox-btn--border">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('includes.service')
         </section>
 
         <section class="faqs-two">
@@ -385,7 +299,7 @@
                         <div class="project-three__left">
                             <div class="sec-title text-start">
                                 <div class="d-flex align-items-center justify-content-start">
-                                    <img class="sec-title__image" src="assets/images/shapes/sec-title-s-1.png" alt="iziechem">
+                                    <img class="sec-title__image" src="assets/images/favicons/logo2.png" alt="iziechem">
                                     <h6 class="sec-title__tagline bw-split-in-right">our complete projects</h6>
                                 </div>
                                 <h3 class="sec-title__title bw-split-in-up">Recent Complete Projects</h3>
@@ -567,7 +481,7 @@
                         <div class="col-lg-8">
                             <div class="sec-title">
                                 <div class="d-flex align-items-center justify-content-start">
-                                    <img class="sec-title__image" src="assets/images/shapes/sec-title-s-3.png" alt="iziechem">
+                                    <img class="sec-title__image" src="assets/images/favicons/logo2.png" alt="iziechem">
                                     <h6 class="sec-title__tagline bw-split-in-right">our team</h6>
                                 </div>
                                 <h3 class="sec-title__title bw-split-in-up">Meet the Expert Team</h3>
@@ -575,60 +489,30 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="team-one__top__btn wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                                <a href="team-details.html" class="wallox-btn wallox-btn--border">view all team</a>
+                                <a href="{{ route('teams') }}" class="wallox-btn wallox-btn--border">view all team</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row gutter-y-30">
+                @foreach($teams as $team)
                     <div class="col-md-6 col-lg-4">
                         <div class="team-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
                             <div class="team-card__thumb">
-                                <img src="assets/images/team/team1.png" alt="iziechem">
+                                <img src="{{asset('public/image/teams/'. $team->image)}}" alt="iziechem">
                             </div>
                             <div class="team-card__content">
-                                <h4 class="team-card__content__title"><a href="team-details.html">Joshua Israel Omeiza</a></h4>
-                                <span class="team-card__content__dec">CEO & Fonuder</span>
+                                <h4 class="team-card__content__title"><a href="{{ route('info_teams', $team->id) }}">{{$team->name}}</a></h4>
+                                <span class="team-card__content__dec">{{$team->role}}</span>
                             </div>
                             <div class="team-card__social">
-                                <a href="https://www.facebook.com/profile.php?id=61552372633966&mibextid=LQQJ4d"><i class="icon-facebook1" aria-hidden="true"></i><span class="sr-only">Facebook</span></a>
-                                <a href="https://www.instagram.com/iziechem?utm_source=ig_web_button_share_sheet&igsh=ODdmZWVhMTFiMw=="><i class="icon-social-media" aria-hidden="true"></i><span class="sr-only">Instagram</span></a>
-                                <a href="https://wa.me/message/X46G7RHDRAFSF1"><i class="bi bi-whatsapp" aria-hidden="true"></i><span class="sr-only">Tiktok</span></a>
+                                <a href="{{$team->facebook}}"><i class="icon-facebook1" aria-hidden="true"></i></a>
+                                <a href="{{$team->instagram}}"><i class="icon-social-media" aria-hidden="true"></i></a>
+                                <a href="{{$team->linkedIn}}"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="team-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                            <div class="team-card__thumb">
-                                <img src="assets/images/team/team2.png" alt="iziechem">
-                            </div>
-                            <div class="team-card__content">
-                                <h4 class="team-card__content__title"><a href="team-details.html">Joshua Daniel Itopa</a></h4>
-                                <span class="team-card__content__dec">Manager</span>
-                            </div>
-                            <div class="team-card__social">
-                                <a href="#!"><i class="icon-facebook1" aria-hidden="true"></i></a>
-                                <a href="http://www.tiktok.com/@dannybrain03"><i class="bi bi-tiktok" aria-hidden="true"></i><span class="sr-only">Tiktok</span></a>
-                                <a href="#!"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="team-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                            <div class="team-card__thumb">
-                                <img src="assets/images/team/team3.png" alt="iziechem">
-                            </div>
-                            <div class="team-card__content">
-                                <h4 class="team-card__content__title"><a href="team-details.html">Owoyomi Rosemary (Bella)</a></h4>
-                                <span class="team-card__content__dec">Apprentice</span>
-                            </div>
-                            <div class="team-card__social">
-                                <a href="#!"><i class="icon-facebook1" aria-hidden="true"></i></a>
-                                <a href="#!"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                                <a href="https://wa.me/2349028927900"><i class="bi bi-whatsapp" aria-hidden="true"></i><span class="sr-only">Tiktok</span></a>
-                            </div>
-                        </div>
-                    </div>
+                @endforeach
                 </div>
             </div>
         </section>
@@ -638,60 +522,64 @@
             <div class="container">
                 <div class="sec-title text-center">
                     <div class="d-flex align-items-center justify-content-center">
-                        <img class="sec-title__image" src="assets/images/shapes/sec-title-s-1.png" alt="iziechem">
+                        <img class="sec-title__image" src="assets/images/favicons/logo2.png" alt="iziechem">
                         <h6 class="sec-title__tagline bw-split-in-right">latest blog</h6>
                     </div>
                     <h3 class="sec-title__title bw-split-in-up">Our Latest Blog & News</h3>
                 </div>
                 <div class="row gutter-y-30">
-                    <div class="col-lg-6">
+                    @foreach($posts->sortByDesc('created_at') as $post)
+                    {{-- <div class="col-lg-6">
                         <div class="blog-three__left">
                             <div class="blog-three__left__bg" style="background-image: url(assets/images/shapes/blog-card-bg.png);"></div>
                             <div class="blog-three__inner wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='300ms'>
                                 <div class="blog-three__card__item">
-                                    <div class="blog-card__date"><span class="blog-card__date__day">20</span> <span class="blog-card__date__month">June</span></div>
-                                    <h3 class="blog-card__title"><a href="blog-details-right.html">cupidatat nonproident, sunt in culpa qui officia deserunt</a></h3>
+                                    <div class="blog-card__date d-flex" style="width: 120px;"><span class="blog-card__date__day">{{$post->created_at->format('d')}}</span> <span class="blog-card__date__month">{{$post->created_at->format('M')}}</span> <span class="blog-card__date__day">{{$post->created_at->format('Y')}}</span></div>
+                                    <h3 class="blog-card__title"><a href="blog-details-right.html">{{$post->title}}</a></h3>
                                     <ul class="blog-card__meta list-unstyled">
-                                        <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-user"></i>by Admin</a></li>
+                                        <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-user"></i>by {{$post->user->name}}</a></li>
                                         <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-comments"></i>2 Comments</a></li>
                                     </ul>
                                 </div>
                                 <div class="blog-three__card__item">
-                                    <div class="blog-card__date"><span class="blog-card__date__day">20</span> <span class="blog-card__date__month">June</span></div>
-                                    <h3 class="blog-card__title"><a href="blog-details-right.html">cupidatat nonproident, sunt in culpa qui officia deserunt</a></h3>
+                                    <div class="blog-card__date d-flex" style="width: 120px;"><span class="blog-card__date__day">{{$post->created_at->format('d')}}</span> <span class="blog-card__date__month">{{$post->created_at->format('M')}}</span> <span class="blog-card__date__day">{{$post->created_at->format('Y')}}</span></div>
+                                    <h3 class="blog-card__title"><a href="blog-details-right.html">{{$post->title}}</a></h3>
                                     <ul class="blog-card__meta list-unstyled">
-                                        <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-user"></i>by Admin</a></li>
+                                        <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-user"></i>by {{$post->user->name}}</a></li>
                                         <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-comments"></i>2 Comments</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="blog-three__card__item__thumb wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                                <img src="assets/images/blog/blog-l-2-1.jpg" alt="blog image">
+                                <img src="{{asset('public/image/posts/'. $post->image)}}" style="height: 443px; width: 100%; object-fit: cover;" alt="iziechem">
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-lg-6">
                         <div class="blog-three__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
                             <div class="blog-three__item__bg" style="background-image: url(assets/images/shapes/blog-card-bg-1-1.png);"></div>
                             <div class="blog-three__item__image">
-                                <img src="assets/images/blog/blog-2-1.jpg" alt="iziechem">
+                                <img src="{{asset('public/image/posts/'. $post->image)}}" style="height: 250px; width: 100%; object-fit: cover;" alt="iziechem">
                                 <a href="blog-details-right.html" class="blog-three__item__image__item">
                                     <div class="blog-three__item__hover__box blog-three__item__hover__box--1"></div>
                                     <div class="blog-three__item__hover__box blog-three__item__hover__box--2"></div>
                                     <div class="blog-three__item__hover__box blog-three__item__hover__box--3"></div>
                                     <div class="blog-three__item__hover__box blog-three__item__hover__box--4"></div>
                                 </a>
-                                <div class="blog-three__item__date"><span class="blog-three__item__date__day">20</span> <span class="blog-three__item__date__month">June</span></div>
+                                {{-- <div class="blog-three__item__date"><span class="blog-three__item__date__day">20</span> <span class="blog-three__item__date__month">June</span></div> --}}
+                                <div class="blog-card__date d-flex" style="width: 120px;"><span class="blog-card__date__day">{{$post->created_at->format('d')}}</span> <span class="blog-card__date__month">{{$post->created_at->format('M')}}</span> <span class="blog-card__date__day">{{$post->created_at->format('Y')}}</span></div>
                             </div>
                             <div class="blog-three__item__content">
-                                <h3 class="blog-three__item__title"><a href="blog-details-right.html">cupidatat nonproident, sunt in culpa qui officia deserunt</a></h3>
+                                <h3 class="blog-three__item__title"><a href="blog-details-right.html">{{$post->title}}</a></h3>
+                                <p style="line-height: 1;">{{substr($post->description, 0, 100)}}... <a href="{{route('show_posts', $post->id)}}">more</a></p>
                                 <ul class="blog-three__item__meta list-unstyled">
-                                    <li class="blog-three__item__meta__item"><a href="blog-details.html"><i class="icon-user"></i>by Admin</a></li>
+                                    <li class="blog-three__item__meta__item"><a href="blog-details.html"><i class="icon-user"></i>by {{$post->user->name}}</a></li>
                                     <li class="blog-three__item__meta__item"><a href="blog-details.html"><i class="icon-comments"></i>2 Comments</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
             <div class="client-carousel">

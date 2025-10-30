@@ -1,7 +1,7 @@
 @extends('layouts.signup')
 
 @section('content')
-<style>
+{{-- <style>
 html, body {
     height: 100%;
     margin: 0;
@@ -9,7 +9,7 @@ html, body {
     overflow: hidden; /* Prevent scrolling on the body */
 
 }
-</style>
+</style> --}}
 
 
         <!-- Login Start -->
@@ -21,7 +21,7 @@ html, body {
                 <div class="row gutter-y-30 align-items-center justify-content-center">
                     <div class="col-xl-6">
                         <div class="login-page__right wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                            <div class="login-page__login-box" style="background: rgba(255, 255, 255, 0.9); border-radius: 30px; padding: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: 15px; margin-bottom: 30px;">
+                            <div class="login-page__login-box" style="padding: 13px 30px; border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: 15px;">
                                 <div class="login-page__content">
                                     <div class="login-page__logo">
                                         <a href="{{ url('/') }}">

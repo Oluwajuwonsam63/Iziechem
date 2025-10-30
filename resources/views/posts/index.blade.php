@@ -19,7 +19,7 @@
     </div>
 
         @include('includes.flash')
-    <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+    <div class="container float">
 
         <table class="table">
         <thead>

@@ -20,7 +20,7 @@
                                         @csrf                                        
                                         <div class="login-page__group">
                                             <div class="login-page__input-box">
-                                                <label for="name">{{ __('name') }}</label>
+                                                <label for="name">{{ __('Service') }}</label>
                                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                 
                                                 @error('Name')

@@ -32,7 +32,7 @@
                                             </div>
                                             <div class="login-page__input-box">
                                                 <label for="image">{{ __('Client Image') }}</label>
-                                                <input id="image" type="file" class="form-control @error('image') is-invalid @endError" name="image" required autocomplete="image" onchange="previewImage(this)">                                                
+                                                <input id="image" type="file" class="form-control @error('image') is-invalid @endError" name="image" required value="{{ old('image') }}" onchange="previewImage(this)">                                                
                                                 <img id="preview" src="" alt="Preview" style="max-width: 150px; margin-top: 10px; display: none;">
                                                 @error('Name')
                                                     <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                                             </div>
                                             <div class="login-page__input-box">
                                                 <label for="sign">{{ __('Client Signature') }}</label>
-                                                <input id="sign" type="file" class="form-control @error('sign') is-invalid @endError" name="sign" autocomplete="sign" onchange="previewImage(this)">                                                
+                                                <input id="sign" type="file" class="form-control @error('sign') is-invalid @endError" name="sign" value="{{ old('sign') }}" onchange="previewImage(this)">                                                
                                                 <img id="preview" src="" alt="Preview" style="max-width: 150px; margin-top: 10px; display: none;">
                                                 @error('sign')
                                                     <span class="invalid-feedback" role="alert">
@@ -70,8 +70,8 @@
                                             </div>
                                             <div class="login-page__input-box">
                                                 <label for="phone">{{ __('Phone Number') }}</label>
-                                                <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder="+234 XXX XXX XXXX" pattern="^\+234[0-9]{10}$" title="Please enter a valid Nigerian phone number starting with +234" required autocomplete="phone" autofocus>
-                                                <small class="form-text text-muted">Format: +234 XXX XXX XXXX (e.g., +234 803 123 4567)</small>
+                                                <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder="080 XXX XX XXX" pattern="^\+234[0-9]{10}$, ^\[0-9]{10}$" title="Please enter a valid Nigerian phone number starting with +234" required autocomplete="phone" autofocus>
+                                                <small class="form-text text-muted">Format: 080 XXX XX XXX</small>
                                                 @error('phone')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -162,11 +162,7 @@
                                                     <button type="submit" class="wallox-btn wallox-btn--base" style="magrin-top: 20px;">{{ __('Create') }}</button>
                                                 </div>
                                             </div>
-                                            <div class="login-page__input-box">
-                                                <div class="login-page__input-box__btn">
-                                                    <button type="reset" class="wallox-btn wallox-btn--base" style="magrin-top: 20px;">{{ __('Reset') }}</button>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </form>                                
                                 </div>

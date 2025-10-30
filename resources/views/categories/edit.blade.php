@@ -14,7 +14,7 @@
     <section class="login-page">
         <div class="container">
             <div class="row gutter-y-30 align-items-center">
-                    @include(includes.create)
+                    @include('includes.create')
                 <div class="col-xl-6">
                     <div class="login-page__right wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='500ms'>
                         <div class="login-page__login-box">
@@ -34,7 +34,7 @@
                                     @csrf                                        
                                     <div class="login-page__group">
                                         <div class="login-page__input-box">
-                                            <label for="name">{{ __('name') }}</label>
+                                            <label for="name">{{ __('Service') }}</label>
                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $category->name) }}" required autocomplete="name" autofocus>
                                             
                                             @error('Name')

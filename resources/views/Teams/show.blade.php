@@ -15,10 +15,10 @@
         <div class="row">
             <div class="card card-success">
                 <div class="card-header">
-                    {{$testifier->name}}
+                    {{$teams->name}} - {{$teams->role}}
                 </div>
                 <div class="card-body">
-                    {{$testifier->message}}
+                    {{$teams->bio}}
                 </div>
             </div>
         </div>

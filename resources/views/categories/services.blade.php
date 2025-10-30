@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="service-card__content">
                                     <div class="service-card__title__box">
-                                        <h3 class="service-card__title"><a href="service-d-room-wallpapers.html">{{$cat->name}}</a></h3>
+                                        <h3 class="service-card__title"><a href="{{ route('info_category', $cat->id) }}">{{$cat->name}}</a></h3>
                                     </div>
                                     <div class="service-card__icon"><i class="icon-wallpaper"></i></div>
                                 </div>

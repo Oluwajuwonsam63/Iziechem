@@ -108,6 +108,15 @@ class CategoriesController extends Controller
         $category= Categories::find($id);
         return view('Categories.show',compact('category', 'page_data'));
     }
+    public function info($id)
+    {
+        $title="category info";
+        $keywords="category";
+        $description="category info";
+        $page_data=['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];
+        $category= Categories::find($id);
+        return view('Categories.info',compact('category', 'page_data'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -121,6 +130,7 @@ class CategoriesController extends Controller
         $keywords="edit, category";
         $description="edit category";
         $page_data= ['title'=> $title, 'keywords' =>$keywords, 'description'=>$description];
+        
         $category= Categories::find($id);
         return view('Categories.edit',compact('category', 'page_data'));
     }

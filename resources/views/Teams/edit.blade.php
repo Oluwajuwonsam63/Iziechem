@@ -2,19 +2,10 @@
 
 @section('content')
 
-    <div class="mb-4">
-        <a href="{{ url()->previous() }}" class="btn btn-outline-primary d-inline-flex align-items-center gap-2" style="font-weight: 500; margin-left:20px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-            </svg>
-            Back
-        </a>
-    </div>
-
         <section class="login-page">
             <div class="container">
                 <div class="row gutter-y-30 align-items-center">
-                        @include(includes.create)
+                        @include('includes.create')
                     <div class="col-xl-6">
                         <div class="login-page__right wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='500ms'>
                             <div class="login-page__login-box">
@@ -24,13 +15,14 @@
                                             <img src="{{ asset('assets/images/logo4.png') }}" width="300" alt="logo">
                                         </a>
                                     </div>
-                                    <h1 class="login-page__title" style="text-align: center; font-size: 20px;">{{ __('Testifier Details') }}</h1>
-                                    <form method="POST" action="{{ route('update_testifiers', $testifier->id) }}" enctype="multipart/form-data">
+                                        @include('includes.errors')
+                                    <h1 class="login-page__title" style="text-align: center; font-size: 20px;">{{ __('Teams Details') }}</h1>
+                                    <form method="POST" action="{{ route('update_teams', $teams->id) }}" enctype="multipart/form-data">
                                         @csrf                                        
                                         <div class="login-page__group">
                                             <div class="login-page__input-box">
-                                                <label for="name">{{ __('Client Name') }}</label>
-                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $testifier->name) }}" required autocomplete="name" autofocus>
+                                                <label for="name">{{ __('Team Name') }}</label>
+                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $teams->name) }}" required autocomplete="name" autofocus>
                                                 
                                                 @error('Name')
                                                     <span class="invalid-feedback" role="alert">
@@ -40,7 +32,7 @@
                                             </div>
                                             <div class="login-page__input-box">
                                                 <label for="image">{{ __('Client Image') }}</label>
-                                                <input id="image" type="file" class="form-control @error('image') is-invalid @endError" name="image" required autocomplete="image" onchange="previewImage(this)">                                                
+                                                <input id="image" type="file" class="form-control @error('image') is-invalid @endError" name="image" required  value="{{ old('image', $teams->image) }} onchange="previewImage(this)">                                                
                                                 <img id="preview" src="" alt="Preview" style="max-width: 150px; margin-top: 10px; display: none;">
                                                 @error('Name')
                                                     <span class="invalid-feedback" role="alert">
@@ -49,30 +41,128 @@
                                                 @enderror
                                             </div>
                                             <div class="login-page__input-box">
-                                                <label for="message">{{ __('Message') }}</label>
-                                                <textarea col='30' rows="10" id="message"  class="form-control" name="message" required autocomplete="message">{{old('message', $testifier->message)}}</textarea>                  
-                                                @error('Name')
+                                                <label for="role">{{ __('role') }}</label>
+                                                <input id="role" type="text" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ old('role', $teams->role) }}" required autocomplete="role" autofocus>
+                                                @error('role')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
                                             </div>
-                                            <div class="login-page__input-box" style="margin-bottom: 20px;">
-                                                <label for="rating">{{ __('rating') }}</label>
-                                                <input id="rating" type="number" class="form-control @error('rating') is-invalid @enderror" name="rating" value="{{ old('rating', $testifier->rating) }}" required autocomplete="rating" autofocus style="max-width: 60px;" min="1" max="5">
-                                                @error('Name')
+                                            <div class="login-page__input-box">
+                                                <label for="bio">{{ __('bio') }}</label>
+                                                <textarea col='30' rows="10" id="bio"  class="form-control" name="bio" required autocomplete="bio">{{old('bio', $teams->bio)}}</textarea>                  
+                                                @error('bio')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
                                             </div>
-                                            
-
+                                            <div class="login-page__input-box">
+                                                <label for="sign">{{ __('Client Signature') }}</label>
+                                                <input id="sign" type="file" class="form-control @error('sign') is-invalid @endError" name="sign" value="{{ old('sign', $teams->sign) }} onchange="previewImage(this)">                                                
+                                                <img id="preview" src="" alt="Preview" style="max-width: 150px; margin-top: 10px; display: none;">
+                                                @error('sign')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="login-page__input-box">
+                                                <label for="phone">{{ __('Phone Number') }}</label>
+                                                <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone', $teams->phone) }}" placeholder="080 XXX XX XXX" pattern="^\+234[0-9]{10}$, ^\[0-9]{10}$" title="Please enter a valid Nigerian phone number starting with +234" required autocomplete="phone" autofocus>
+                                                <small class="form-text text-muted">Format: 080 XXX XX XXX</small>
+                                                @error('phone')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="login-page__input-box">
+                                                <label for="email">{{ __('Email') }}</label>
+                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $teams->email) }}" required autocomplete="email" autofocus>
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="login-page__input-box">
+                                                <label for="location">{{ __('Location') }}</label>
+                                                <input id="location" type="text" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ old('location', $teams->location) }}" autocomplete="location" autofocus>
+                                                
+                                                @error('location')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="login-page__input-box">
+                                                <label for="facebook">{{ __('Facebook') }}</label>
+                                                <input id="facebook" type="url" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="{{ old('facebook', $teams->facebook) }}" autocomplete="facebook" autofocus>
+                                                
+                                                @error('facebook')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="login-page__input-box">
+                                                <label for="instagram">{{ __('instagram') }}</label>
+                                                <input id="instagram" type="text" class="form-control @error('instagram') is-invalid @enderror" name="instagram" value="{{ old('instagram', $teams->instagram) }}" autocomplete="instagram" autofocus>
+                                                
+                                                @error('instagram')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="login-page__input-box">
+                                                <label for="youtube">{{ __('youtube') }}</label>
+                                                <input id="youtube" type="text" class="form-control @error('youtube') is-invalid @enderror" name="youtube" value="{{ old('youtube', $teams->youtube) }}" autocomplete="youtube" autofocus>
+                                                
+                                                @error('youtube')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="login-page__input-box">
+                                                <label for="linkedIn">{{ __('linkedIn') }}</label>
+                                                <input id="linkedIn" type="text" class="form-control @error('linkedIn') is-invalid @enderror" name="linkedIn" value="{{ old('linkedIn', $teams->linkedIn) }}" autocomplete="linkedIn" autofocus>
+                                                
+                                                @error('linkedIn')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="login-page__input-box">
+                                                <label for="x">{{ __('x') }}</label>
+                                                <input id="x" type="text" class="form-control @error('x') is-invalid @enderror" name="x" value="{{ old('x', $teams->x) }}" autocomplete="x" autofocus>
+                                                
+                                                @error('x')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                            <div class="login-page__input-box">
+                                                <label for="tiktok">{{ __('tiktok') }}</label>
+                                                <input id="tiktok" type="text" class="form-control @error('tiktok') is-invalid @enderror" name="tiktok" value="{{ old('tiktok', $teams->tiktok) }}" autocomplete="tiktok" autofocus>
+                                                
+                                                @error('tiktok')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
                                             <div class="login-page__input-box">
                                                 <div class="login-page__input-box__btn">
                                                     <button type="submit" class="wallox-btn wallox-btn--base" style="magrin-top: 20px;">{{ __('Update') }}</button>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                     </form>                                
                                 </div>

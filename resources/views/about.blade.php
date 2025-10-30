@@ -46,7 +46,7 @@
                                     <div class="about-one__video">
                                         <img src="assets/images/about/video-bg.jpg" alt="wallox image">
                                         <div class="about-one__video-popup">
-                                            <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" class="about-one__video video-popup">
+                                            <a href="https://www.youtube.com/watch?v=y_MIu6bFDl8" class="about-one__video video-popup">
                                                 <i class="icon-polygon"></i>
                                             </a>
                                         </div>
@@ -211,161 +211,6 @@
                             </div>
                         </div>
                         @endforeach
-                        <!-- <div class="item">
-                            <div class="testimonials-card wow fadeInUp" data-wow-duration='000ms' data-wow-delay='000ms'>
-                                <div class="testimonials-card__top">
-                                    <div class="testimonials-card__image">
-                                        <img src="assets/images/resources/test2.png" alt="Climax">
-                                    </div>
-                                    <div class="testimonials-card__top__video">
-                                        <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" class="testimonials-card__video video-popup">
-                                            <i class="icon-polygon"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <p class="testimonials-card__text">“I was impressed with their attention to detail. From preparation to finishing, everything was done perfectly. My office now has a modern and welcoming look.”</p>
-                                <div class="testimonials-card__content">
-                                    <div class="testimonials-card__author">
-                                        <h4 class="testimonials-card__author__title">Climax</h4>
-                                        <span class="testimonials-card__author__dec">Client</span>
-                                    </div>
-                                    <div class="testimonials-card__rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="testimonials-card__quite">
-                                    <i class="icon-quite1"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonials-card wow fadeInUp" data-wow-duration='000ms' data-wow-delay='000ms'>
-                                <div class="testimonials-card__top">
-                                    <div class="testimonials-card__image">
-                                        <img src="assets/images/resources/test3.png" alt="Samuel Michael Oluwasegun">
-                                    </div>
-                                    <div class="testimonials-card__top__video">
-                                        <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" class="testimonials-card__video video-popup">
-                                            <i class="icon-polygon"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <p class="testimonials-card__text">“Their paint products are of excellent quality and long-lasting. I love the smooth finish and the fact that the colors don’t fade easily. Highly recommended!”</p>
-                                <div class="testimonials-card__content">
-                                    <div class="testimonials-card__author">
-                                        <h4 class="testimonials-card__author__title">Samuel Michael Oluwasegun</h4>
-                                        <span class="testimonials-card__author__dec">Client</span>
-                                    </div>
-                                    <div class="testimonials-card__rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="testimonials-card__quite">
-                                    <i class="icon-quite1"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonials-card wow fadeInUp" data-wow-duration='000ms' data-wow-delay='000ms'>
-                                <div class="testimonials-card__top">
-                                    <div class="testimonials-card__image">
-                                        <img src="assets/images/resources/test4.png" alt="Adegoke Olamilekan">
-                                    </div>
-                                    <div class="testimonials-card__top__video">
-                                        <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" class="testimonials-card__video video-popup">
-                                            <i class="icon-polygon"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <p class="testimonials-card__text">“The team delivered exactly what they promised—clean, beautiful results. My walls have never looked this elegant. I will definitely hire them again.”</p>
-                                <div class="testimonials-card__content">
-                                    <div class="testimonials-card__author">
-                                        <h4 class="testimonials-card__author__title">Adegoke Olamilekan</h4>
-                                        <span class="testimonials-card__author__dec">Client</span>
-                                    </div>
-                                    <div class="testimonials-card__rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="testimonials-card__quite">
-                                    <i class="icon-quite1"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonials-card wow fadeInUp" data-wow-duration='000ms' data-wow-delay='000ms'>
-                                <div class="testimonials-card__top">
-                                    <div class="testimonials-card__image">
-                                        <img src="assets/images/resources/test5.png" alt="BiBi">
-                                    </div>
-                                    <div class="testimonials-card__top__video">
-                                        <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" class="testimonials-card__video video-popup">
-                                            <i class="icon-polygon"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <p class="testimonials-card__text">“What stood out for me was their professionalism and punctuality. They completed my project on time and exceeded my expectations.”</p>
-                                <div class="testimonials-card__content">
-                                    <div class="testimonials-card__author">
-                                        <h4 class="testimonials-card__author__title">BiBi</h4>
-                                        <span class="testimonials-card__author__dec">Client</span>
-                                    </div>
-                                    <div class="testimonials-card__rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="testimonials-card__quite">
-                                    <i class="icon-quite1"></i>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="item">
-                            <div class="testimonials-card wow fadeInUp" data-wow-duration='000ms' data-wow-delay='000ms'>
-                                <div class="testimonials-card__top">
-                                    <div class="testimonials-card__image">
-                                        <img src="assets/images/resources/test6.png" alt="Eni Ola">
-                                    </div>
-                                    <div class="testimonials-card__top__video">
-                                        <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" class="testimonials-card__video video-popup">
-                                            <i class="icon-polygon"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <p class="testimonials-card__text">“From 3D panels to painting, everything was done with precision and creativity. IZIECHEM truly understands how to bring walls to life.”</p>
-                                <div class="testimonials-card__content">
-                                    <div class="testimonials-card__author">
-                                        <h4 class="testimonials-card__author__title">Eni Ola</h4>
-                                        <span class="testimonials-card__author__dec">Client</span>
-                                    </div>
-                                    <div class="testimonials-card__rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="testimonials-card__quite">
-                                    <i class="icon-quite1"></i>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -393,54 +238,24 @@
                     </div>
                 </div>
                 <div class="row gutter-y-30">
+                    @foreach($teams as $team)
                     <div class="col-md-6 col-lg-4">
                         <div class="team-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
                             <div class="team-card__thumb">
-                                <img src="assets/images/team/team1.png" alt="iziechem">
+                                <img src="{{asset('public/image/teams/'. $team->image)}}" alt="iziechem">
                             </div>
                             <div class="team-card__content">
-                                <h4 class="team-card__content__title"><a href="team-details.html">Joshua Israel Omeiza</a></h4>
-                                <span class="team-card__content__dec">CEO & Fonuder</span>
+                                <h4 class="team-card__content__title"><a href="{{ route('info_teams', $team->id) }}">{{$team->name}}</a></h4>
+                                <span class="team-card__content__dec">{{$team->role}}</span>
                             </div>
                             <div class="team-card__social">
-                                <a href="https://www.facebook.com/profile.php?id=61552372633966&mibextid=LQQJ4d"><i class="icon-facebook1" aria-hidden="true"></i><span class="sr-only">Facebook</span></a>
-                                <a href="https://www.instagram.com/iziechem?utm_source=ig_web_button_share_sheet&igsh=ODdmZWVhMTFiMw=="><i class="icon-social-media" aria-hidden="true"></i><span class="sr-only">Instagram</span></a>
-                                <a href="https://wa.me/message/X46G7RHDRAFSF1"><i class="bi bi-whatsapp" aria-hidden="true"></i><span class="sr-only">Tiktok</span></a>
+                                <a href="{{$team->facebook}}"><i class="icon-facebook1" aria-hidden="true"></i></a>
+                                <a href="{{$team->instagram}}"><i class="icon-social-media" aria-hidden="true"></i></a>
+                                <a href="{{$team->linkedIn}}"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="team-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                            <div class="team-card__thumb">
-                                <img src="assets/images/team/team2.png" alt="iziechem">
-                            </div>
-                            <div class="team-card__content">
-                                <h4 class="team-card__content__title"><a href="team-details.html">Joshua Daniel Itopa</a></h4>
-                                <span class="team-card__content__dec">Manager</span>
-                            </div>
-                            <div class="team-card__social">
-                                <a href="#!"><i class="icon-facebook1" aria-hidden="true"></i></a>
-                                <a href="http://www.tiktok.com/@dannybrain03"><i class="bi bi-tiktok" aria-hidden="true"></i><span class="sr-only">Tiktok</span></a>
-                                <a href="#!"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="team-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                            <div class="team-card__thumb">
-                                <img src="assets/images/team/team3.png" alt="iziechem">
-                            </div>
-                            <div class="team-card__content">
-                                <h4 class="team-card__content__title"><a href="team-details.html">Owoyomi Rosemary (Bella)</a></h4>
-                                <span class="team-card__content__dec">Apprentice</span>
-                            </div>
-                            <div class="team-card__social">
-                                <a href="#!"><i class="icon-facebook1" aria-hidden="true"></i></a>
-                                <a href="#!"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                                <a href="https://wa.me/2349028927900"><i class="bi bi-whatsapp" aria-hidden="true"></i><span class="sr-only">Tiktok</span></a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

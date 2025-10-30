@@ -178,8 +178,15 @@ class PostsController extends Controller
      * @param  \App\Models\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Posts $posts)
+    public function destroy($id)
     {
-        //
+        $posts= posts::where('id', $id)->first();
+        if($posts)
+        {
+             $posts->delete();
+        return redirect()->route('all_posts')->with('success','post deleted successfully!');
+        }
+
+        return redirect()->route('all_posts')->with('error','No post found');
     }
 }

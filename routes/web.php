@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\testifiers;
+use App\Models\teams;
+use App\Models\projects;
+use App\Models\categories;
+use App\Models\posts;
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\Auth\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +26,12 @@ Route::get('/', function () {
         $description = "Welcome to IZIECHEM, Nigeria’s trusted provider of premium paint production, wall screeding, interior & exterior painting, and decorative finishes. We create smooth, beautiful, and lasting walls. We Give Life to Dead Walls";
         $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
 
-        $testifiers = Testifiers::all();
-    return view('index', compact('page_data', 'testifiers'));
+        $testifiers = Testifiers::latest()->take(5)->get();
+        $categories = categories::latest()->take(4)->get();
+        $teams = teams::oldest()->take(3)->get();
+        $posts = posts::latest()->take(2)->get();
+
+    return view('index', compact('page_data', 'testifiers', 'categories', 'teams', 'posts'));
 });
 
 Route::post('/contact/send', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
@@ -35,8 +45,12 @@ Route::get('/updates', [App\Http\Controllers\WebController::class, 'updates'])->
 Route::get('/contact', [App\Http\Controllers\WebController::class, 'contact'])->name('contact');
 
 
-use Laravel\Socialite\Facades\Socialite;
-use App\Http\Controllers\Auth\GoogleController;
+//Teams routes
+Route::get('/teams', [App\Http\Controllers\TeamsController::class, 'teams'])->name('teams');
+Route::get('/teams/{id}info', [App\Http\Controllers\TeamsController::class, 'info'])->name('info_teams');
+Route::get('/projects', [App\Http\Controllers\ProjectsController::class, 'projects'])->name('projects');
+Route::get('/categories/{id}/info', [App\Http\Controllers\CategoriesController::class, 'info'])->name('info_category');
+
 
 Auth::routes();
 
@@ -85,4 +99,14 @@ Route::post('/teams/create', [App\Http\Controllers\TeamsController::class, 'stor
 Route::post('/teams/{team}/update', [App\Http\Controllers\TeamsController::class, 'update'])->name('update_teams');
 Route::get('/teams/{id}/delete',[App\Http\Controllers\TeamsController::class,'destroy'])->name('delete_teams');
 Route::get('/teams/{id}/details',[App\Http\Controllers\TeamsController::class,'show'])->name('show_teams');
+
+// Projects Route
+Route::get('/projects', [App\Http\Controllers\ProjectsController::class, 'index'])->name('all_projects');
+Route::get('/projects/{project}/edit', [App\Http\Controllers\ProjectsController::class, 'edit'])->name('edit_projects');
+Route::get('/projects/create', [App\Http\Controllers\ProjectsController::class, 'create'])->name('create_projects');
+Route::post('/projects/create', [App\Http\Controllers\ProjectsController::class, 'store'])->name('store_projects'); 
+Route::post('/projects/{project}/update', [App\Http\Controllers\ProjectsController::class, 'update'])->name('update_projects');
+Route::get('/projects/{id}/delete',[App\Http\Controllers\ProjectsController::class,'destroy'])->name('delete_projects');
+Route::get('/projects/{id}/details',[App\Http\Controllers\ProjectsController::class,'show'])->name('show_projects');
+
 });

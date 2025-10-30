@@ -592,6 +592,11 @@ h6 {
   font-weight: 700;
   margin-right: 8px;
 }
+.float {
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+  overflow: scroll;
+}
 .scroll-to-top__wrapper {
   display: inline-block;
   width: 30px;
@@ -1012,8 +1017,8 @@ h6 {
   transform: rotate(-180deg);
   position: absolute;
   writing-mode: vertical-rl;
-  bottom: 30px;
-  right: 30px;
+  bottom: 10px;
+  right: 10px;
   transition: all 0.4s ease-in-out;
   min-height: 209px;
 }
@@ -3498,6 +3503,8 @@ h6 {
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  margin-right: 10px;
+  margin-left: -5px;
 }
 @media (min-width: 768px) {
   .main-header__logo {
@@ -3512,6 +3519,7 @@ h6 {
 .main-header__right {
   display: flex;
   align-items: center;
+  margin-left: 8px;
 }
 .main-header__right__info {
   display: flex;
@@ -3772,6 +3780,12 @@ h6 {
 .main-header--three .main-menu .main-menu__list > li > a,
 .main-header--three .main-header__right__info__item {
   color: var(--wallox-white, #fff);
+}
+@media only screen and (min-width: 992px) {
+  .space {display: none;}
+}
+@media only screen and (max-width: 600px) {
+  .create {display: none;}
 }
 
 .sticky-header--cloned {
@@ -8842,8 +8856,10 @@ body.megamenu-popup-active .mobile-nav__content {
 .login-page__login-box {
   position: relative;
   background: var(--wallox-gray, #F4EDE4);
-  padding: 55px 105px;
+  padding: 10px 30px;
   border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  margin-top: 15px; 
 }
 .login-page__content {
   max-width: 557px;
@@ -10368,7 +10384,7 @@ body.megamenu-popup-active .mobile-nav__content {
 
 .mobile-nav__contact {
   margin-bottom: 0;
-  margin-top: 20px;
+  margin-top: -20px;
   margin-bottom: 20px;
 }
 .mobile-nav__contact li {
@@ -10406,6 +10422,18 @@ body.megamenu-popup-active .mobile-nav__content {
 .mobile-nav__container .main-menu__logo,
 .mobile-nav__container .main-menu__right {
   display: none;
+}
+.mobile-nav__sign{
+  display: flex;
+  margin: -5px -5px -5px -10px;
+  padding: 2px;
+}
+.mobile-nav__sign li{
+  list-style: none;
+}
+.mobile-nav__sign ul{
+  padding: 0px;
+  margin: 0px;
 }
 
 /*--------------------------------------------------------------
@@ -12627,6 +12655,7 @@ body.megamenu-popup-active .mobile-nav__content {
   .about-two__thumb__item-two img {
     object-fit: cover;
     width: 100%;
+    height: 220px;
   }
 }
 .about-two .sec-title {

@@ -2,7 +2,7 @@
             <div class="container">
                 <div class="sec-title text-center">
                     <div class="d-flex align-items-center justify-content-center">
-                        <img class="sec-title__image" src="assets/images/shapes/sec-title-s-1.png" alt="iziechem">
+                        <img class="sec-title__image" src="assets/images/favicons/logo2.png" alt="iziechem">
                         <h6 class="sec-title__tagline bw-split-in-right">our testimonials</h6>
                     </div>
                     <h3 class="sec-title__title bw-split-in-up">What They Talked About Iziechem</h3>
