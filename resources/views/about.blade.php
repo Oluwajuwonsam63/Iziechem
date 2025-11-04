@@ -232,7 +232,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="team-one__top__btn wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                                <a href="team-details.html" class="wallox-btn wallox-btn--border">view all team</a>
+                                <a href="{{ url('/teams') }}" class="wallox-btn wallox-btn--border">view all team</a>
                             </div>
                         </div>
                     </div>

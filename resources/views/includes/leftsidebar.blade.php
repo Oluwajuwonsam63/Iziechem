@@ -3,43 +3,37 @@
                             <aside class="widget-area">
                                 <div class="sidebar__form sidebar__single wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
                                     <h4 class="sidebar__title sidebar__form__title">search here</h4>
-                                    <form action="#" class="sidebar__search">
-                                        <input type="text" placeholder="Search Here">
-                                        <button type="submit" aria-label="search submit" class="sidebar__search__icon">
-                                            <i class="icon-search"></i>
-                                        </button>
-                                    </form>
+                                            <form action="{{ url('/searchs') }}" method="GET" class="sidebar__search">
+                                                <input type="search" id="search-input" name="query" placeholder="Search Here"><div id="search-input"></div>
+                                                <button type="submit" aria-label="search submit" class="sidebar__search__icon">
+                                                    <i class="icon-search"></i>
+                                                </button>
+                                            </form>
+                                            @if(request()->has('query'))
+                                                @if(isset($posts))
+                                                    @foreach($posts as $post)
+                                                       <p class="d-none"> {{ $post->title }} - {{ $post->description }} </p>
+                                                    @endforeach
+                                                @else
+                                                    <p>No Result Found.</p>
+                                                @endif
+                                            @endif
                                 </div>
                                 <div class="sidebar__posts-wrapper sidebar__single wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                                    <h4 class="sidebar__title">Latest posts</h4>
+                                    <h4 class="sidebar__title">Latest Updates</h4>
                                     <ul class="sidebar__posts list-unstyled">
+                                        @foreach($latestposts->sortByDesc('created_at') as $post)
                                         <li class="sidebar__posts__item">
                                             <div class="sidebar__posts__image">
-                                                <img src="assets/images/blog/lp-1-1.jpg" alt="Latest posts">
+                                                {{-- <img src="assets/images/blog/lp-1-1.jpg" alt="Latest posts"> --}}
+                                                <img src="{{asset('public/image/posts/'.$post->image)}}" alt="$post->name">
                                             </div>
                                             <div class="sidebar__posts__content">
-                                                <div class="sidebar__posts__meta"><a href="#"><span class="sidebar__posts__meta__icon"><i class="icon-user"></i></span>By Admin</a></div>
-                                                <h4 class="sidebar__posts__title"><a href="blog-details-right.html">There are many vario ns of passages of</a></h4>
+                                                <div class="sidebar__posts__meta"><a href="#"><span class="sidebar__posts__meta__icon"><i class="icon-user"></i></span>{{explode(' ', $post->user->name)[0]}} {{explode(' ', $post->user->name)[2]}}</a></div>
+                                                <h4 class="sidebar__posts__title"><a href="blog-details-right.html">{{$post->title}}</a></h4>
                                             </div>
                                         </li>
-                                        <li class="sidebar__posts__item">
-                                            <div class="sidebar__posts__image">
-                                                <img src="assets/images/blog/lp-1-2.jpg" alt="Latest posts">
-                                            </div>
-                                            <div class="sidebar__posts__content">
-                                                <div class="sidebar__posts__meta"><a href="#"><span class="sidebar__posts__meta__icon"><i class="icon-user"></i></span>By Admin</a></div>
-                                                <h4 class="sidebar__posts__title"><a href="blog-details-right.html">There are many vario ns of passages of</a></h4>
-                                            </div>
-                                        </li>
-                                        <li class="sidebar__posts__item">
-                                            <div class="sidebar__posts__image">
-                                                <img src="assets/images/blog/lp-1-3.jpg" alt="Latest posts">
-                                            </div>
-                                            <div class="sidebar__posts__content">
-                                                <div class="sidebar__posts__meta"><a href="#"><span class="sidebar__posts__meta__icon"><i class="icon-user"></i></span>By Admin</a></div>
-                                                <h4 class="sidebar__posts__title"><a href="blog-details-right.html">There are many vario ns of passages of</a></h4>
-                                            </div>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="sidebar__categories-wrapper sidebar__single wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>

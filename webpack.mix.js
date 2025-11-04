@@ -13,4 +13,15 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-    .sourceMaps();
+    .version() // Enable versioning for cache busting
+    .options({
+        processCssUrls: false, // Prevent URL processing for better performance
+        terser: {
+            terserOptions: {
+                compress: {
+                    drop_console: true, // Remove console.log in production
+                },
+            },
+        },
+    })
+    .sourceMaps(); // Keep source maps for development

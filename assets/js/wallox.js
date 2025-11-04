@@ -24,6 +24,30 @@
     });
   }
 
+  $(document).ready(function() {
+    $('#search-input').submit(function(event) {
+      event.preventDefault(); 
+      let query = $(this).find('input[name="query"]').val();
+      $.ajax({
+        type: 'GET',
+        url: "{{ route('/searchs') }}",
+        data: {'query': query},
+        success: function(data) {
+          // $.each(data, funtion(index, post) {
+          //   result += '<p>' + post.title + ' _ ' + '</p>';
+          // });
+          $('#search-input').html(data);
+        }
+      });
+    });
+  });
+
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  })
+
   let dynamicyearElm = $(".dynamic-year");
   if (dynamicyearElm.length) {
     let currentYear = new Date().getFullYear();

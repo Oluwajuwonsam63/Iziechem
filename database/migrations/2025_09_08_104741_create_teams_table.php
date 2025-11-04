@@ -21,7 +21,7 @@ class CreateTeamsTable extends Migration
             $table->text('bio');
             $table->string('image');
             $table->string('sign')->nullable('null');
-            $table->integer('phone', 20)->nullable('null');
+            $table->string('phone', 20)->nullable()->change();
             $table->text('email');
             $table->text('location')->nullable('null');
         // Three fixed social media links

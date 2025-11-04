@@ -2760,7 +2760,7 @@ h6 {
 }
 .main-footer__form__newsletter input[type=text] {
   border-radius: 10px 11px 11px 10px;
-  width: 100%;
+  width: 120%;
   display: block;
   border: none;
   outline: none;
@@ -3781,7 +3781,7 @@ h6 {
 .main-header--three .main-header__right__info__item {
   color: var(--wallox-white, #fff);
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1050px) {
   .space {display: none;}
 }
 @media only screen and (max-width: 600px) {
@@ -6470,6 +6470,14 @@ body.megamenu-popup-active .mobile-nav__content {
   border-radius: 10px;
 }
 .sidebar__single + .sidebar__single {
+  margin-top: 30px;
+}
+.sidebar__single2 {
+  background-color: var(--wallox-gray, #F4EDE4);
+  padding: 30px;
+  border-radius: 10px;
+}
+.sidebar__single2 + .sidebar__single2 {
   margin-top: 30px;
 }
 .sidebar__title {

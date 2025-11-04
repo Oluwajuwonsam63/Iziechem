@@ -17,8 +17,6 @@
         <section class="blog-one blog-one--page">
             <div class="container">
                 <div class="row gutter-y-60">
-
-                    @include('includes.leftsidebar')
                     
                     <div class="col-lg-8">
                         <div class="row gutter-y-30">
@@ -27,7 +25,7 @@
                                     <div class="blog-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
                                         <div class="blog-card__image">
                                             <!-- <img src="assets/images/blog/blog-1-1.jpg" alt="cupidatat nonproident, sunt in culpa qui officia deserunt"> -->
-                                            <img src="{{asset('public/image/posts/'. $post->image)}}" alt="" style="height: 250px; width: 100%; object-fit: cover;">
+                                            <img src="{{asset('public/image/posts/'.$post->image)}}" alt="" style="height: 250px; width: 100%; object-fit: cover;">
                                             <a href="blog-details-right.html" class="blog-card__image__item">
                                                 <div class="blog-card__hover__box blog-card__hover__box--1"></div>
                                                 <div class="blog-card__hover__box blog-card__hover__box--2"></div>
@@ -39,7 +37,7 @@
                                             <h3 class="blog-card__title"><a href="blog-details-right.html">{{$post->title}}</a></h3>
                                             <p style="line-height: 1;">{{substr($post->description, 0, 100)}}... <a href="{{route('show_posts', $post->id)}}">more</a></p>
                                             <ul class="blog-card__meta list-unstyled">
-                                                <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-user"></i>by {{$post->user->name}}</a></li>
+                                                <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-user"></i>{{explode(' ', $post->user->name)[0]}} {{explode(' ', $post->user->name)[2]}}</a></li>
                                                 <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-comments"></i>2 Comments</a></li>
                                             </ul>
                                             <div class="blog-card__date d-flex" style="width: 120px;"><span class="blog-card__date__day">{{$post->created_at->format('d')}}</span> <span class="blog-card__date__month">{{$post->created_at->format('M')}}</span> <span class="blog-card__date__day">{{$post->created_at->format('Y')}}</span></div>
@@ -58,6 +56,7 @@
                                 </div>
                         </div>
                     </div><!-- /.col-lg-8 -->
+                    @include('includes.leftsidebar')
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </section>

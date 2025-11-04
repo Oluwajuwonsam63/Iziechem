@@ -8,6 +8,7 @@
     <meta name="author" content="bracket-web">
     <meta name="keywords" content="{{ $page_data['keywords'] }}">
     <meta name="description" content="{{ $page_data['description'] }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/favicons/logo2.png') }}">
@@ -426,13 +427,19 @@
                         </div>
                         <div class="main-footer__form">
                             <div class="main-footer__form__item">
-                                <form action="#" data-url="MAILCHIMP_FORM_URL"
-                                    class="main-footer__form__newsletter mc-form">
-                                    <span class="icon-email main-footer__form__newsletter__icon"></span>
-                                    <input type="text" name="EMAIL" placeholder="your email">
-                                    <button type="submit" class="wallox-btn">Subscribe Now</button>
-                                </form>
-                                <div class="mc-form__response"></div>
+                                @include('includes.errors')
+                                <form action="{{ route('store_subscribe') }}" method="POST"
+                                    class="main-footer__form__newsletter">
+                                    @csrf
+                                    <div id="success">
+                                        <span class="icon-email main-footer__form__newsletter__icon"></span>
+                                        <input type="text" name="email" placeholder="john@example.com">
+                                        <button type="submit" onclick="alert('Thank you for subscribing!')" class="wallox-btn note1">Subscribe<i class="bi bi-bell-fill"></i></button>
+                                    </div>
+                                </form> <br>
+                                @include('includes.flash')
+                                    
+                                {{-- <div class="mc-form__response"></div> --}}
                             </div>
                         </div>
                         <div class="main-footer__social">
@@ -477,11 +484,11 @@
                                 <h2 class="footer-widget__title bw-split-in-right">Explore Links</h2>
                                 <ul class="footer-widget__links list-unstyled">
                                     <li><i class="fas fa-circle"></i><a href="{{ url('/about') }}"> About us</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="contact.html"> Contact us</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="team.html"> Our Team</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="services.html"> Our Services</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="project.html"> Latest Projects</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="blog-grid.html"> Latest news</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="{{ url('/contact') }}"> Contact us</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="{{ url('/teams') }}"> Our Team</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="{{ url('/service') }}"> Our Services</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="{{ url('/project') }}"> Latest Projects</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="{{ url('/updates') }}"> Latest Update</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -490,19 +497,10 @@
                                 data-wow-delay='500ms'>
                                 <h2 class="footer-widget__title bw-split-in-right">Our Services</h2>
                                 <ul class="footer-widget__links list-unstyled">
-                                    <li><i class="fas fa-circle"></i><a href="service-d-room-wallpapers.html">Room
-                                            Wallpapers</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="service-d-wall-painting.html">Wall
-                                            Painting</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="service-d-wall-sheets.html">Wall
-                                            Sheets</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="service-d-wallpapers.html">Outdoor
-                                            Design</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="service-d-pvc-panels.html">PVC
-                                            Panels</a></li>
-                                    <li><i class="fas fa-circle"></i><a
-                                            href="service-d-interior-designing.html">Interior Designing</a></li>
-                                </ul>
+                                @foreach($categories->sortByDesc('created_at')->take(6) as $cat)
+                                    <li><i class="fas fa-circle"></i><a href="{{ route('info_category', $cat->id) }}">{{$cat->name}}</a></li>
+                                @endforeach
+                                </ul> 
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-3">
@@ -636,12 +634,21 @@
         <div class="search-popup__overlay search-toggler"></div>
         <!-- /.search-popup__overlay -->
         <div class="search-popup__content">
-            <form role="search" method="get" class="search-popup__form" action="#">
-                <input type="text" id="search" placeholder="Search Here...">
+            <form role="search" method="GET" class="search-popup__form" action="{{ url('/allsearch') }}">
+                <input type="text" id="search" name="query" placeholder="Search Here...">
                 <button type="submit" aria-label="search submit" class="wallox-btn wallox-btn--base">
                     <span><i class="icon-search"></i></span>
                 </button>
             </form>
+            {{-- @if(request()->has('query'))
+                @if(isset($posts))
+                    @foreach($posts as $post)
+                        <p class="d-none"> {{ $post->title }} - {{ $post->description }} </p>
+                    @endforeach
+                @else
+                    <p>No Result Found.</p>
+                @endif
+            @endif --}}
         </div>
         <!-- /.search-popup__content -->
     </div>
@@ -650,6 +657,11 @@
         <span class="scroll-to-top__text">back top</span>
         <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
     </a>
+
+    {{-- add this near the end of your main layout --}}
+    @include('components.chatbot')
+
+
 
 
 
@@ -686,6 +698,12 @@
 
     <!-- template js -->
     <script src="{{ asset('assets/js/wallox.js') }}"></script>
+
+    {{-- <script>
+        function myFunction() {
+        document.getElementById("success").innerHTML = @include('includes.flash');
+        }
+    </script> --}}
     @yield('scripts')
 </body>
 

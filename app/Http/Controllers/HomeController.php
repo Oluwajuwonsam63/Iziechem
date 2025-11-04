@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Testifiers;
-use App\Models\categories;
+use App\Models\testifiers;
+use App\Models\teams;
+use App\Models\projects;
+use App\Models\Categories;
+use App\Models\Posts;
 
 class HomeController extends Controller
 {
@@ -30,8 +33,11 @@ class HomeController extends Controller
             $description = "Welcome to the IZIECHEM Admin Dashboard. Here you can manage blog posts, categories, and view user messages. Stay organized and keep your content updated with ease.";
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
 
-            $testifiers = Testifiers::all();
-            $categories = categories::all();
-        return view('dashboard' , compact('page_data', 'testifiers', 'categories'));
+            $testifiers = testifiers::latest()->take(5)->get();
+        $categories = Categories::latest()->take(4)->get();
+        $teams = teams::oldest()->take(3)->get();
+        $posts = Posts::latest()->take(2)->get();
+
+        return view('index', compact('page_data', 'testifiers', 'categories', 'teams', 'posts'));
     }
 }

@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="row gutter-y-30">
-                    @foreach($categories->sortByDesc('created_at') as $cat)
+                    @foreach($categories->sortByDesc('created_at')->take(4) as $cat)
                     <div class="col-lg-6">
                         <div class="service-three__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
                             <div class="service-three__thumb">

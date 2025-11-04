@@ -13,16 +13,24 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $title= "All Categories";
         $keywords= "Admin All Categories";
         $description="All categories";
         $page_data= ['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];// associative array
 
-        $categories = Categories::all();
+        $query = $request->input('query');
+
+        if ($query) {
+            $categories = Categories::where('name', 'like', '%' . $query . '%')
+                ->get();
+        } else {
+            $categories = Categories::all();
+        }
+
         //dd($categories);
-        return view('categories.index', compact('categories', 'page_data'));
+        return view('categories.index', compact('categories', 'page_data', 'query'));
     }
 
     //     public function service()

@@ -8,6 +8,7 @@ use App\Models\categories;
 use App\Models\posts;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\ChatbotController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,8 @@ Route::get('/', function () {
         $description = "Welcome to IZIECHEM, Nigeria’s trusted provider of premium paint production, wall screeding, interior & exterior painting, and decorative finishes. We create smooth, beautiful, and lasting walls. We Give Life to Dead Walls";
         $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
 
-        $testifiers = Testifiers::latest()->take(5)->get();
-        $categories = categories::latest()->take(4)->get();
+        $testifiers = testifiers::latest()->take(5)->get();
+        $categories = categories::all();
         $teams = teams::oldest()->take(3)->get();
         $posts = posts::latest()->take(2)->get();
 
@@ -42,6 +43,9 @@ Route::get('/service', [App\Http\Controllers\WebController::class, 'services'])-
 Route::get('/project', [App\Http\Controllers\WebController::class, 'project'])->name('project');
 Route::get('/shop', [App\Http\Controllers\WebController::class, 'shop'])->name('shop');
 Route::get('/updates', [App\Http\Controllers\WebController::class, 'updates'])->name('updates');
+Route::get('/search', [App\Http\Controllers\WebController::class, 'search'])->name('search');
+Route::get('/allsearch', [App\Http\Controllers\WebController::class, 'allsearch'])->name('all_search');
+Route::get('/searchs', [App\Http\Controllers\WebController::class, 'searchs'])->name('searchs');
 Route::get('/contact', [App\Http\Controllers\WebController::class, 'contact'])->name('contact');
 
 
@@ -51,6 +55,9 @@ Route::get('/teams/{id}info', [App\Http\Controllers\TeamsController::class, 'inf
 Route::get('/projects', [App\Http\Controllers\ProjectsController::class, 'projects'])->name('projects');
 Route::get('/categories/{id}/info', [App\Http\Controllers\CategoriesController::class, 'info'])->name('info_category');
 
+//Subscribers
+Route::post('/subscribe', [App\Http\Controllers\SubscribersController::class, 'store'])->name('store_subscribe');
+
 
 Auth::routes();
 
@@ -59,6 +66,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Google OAuth Routes
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+// Chatbot endpoints (protected with auth middleware)
+Route::middleware(['auth'])->group(function() {
+    Route::post('/chatbot/message', [App\Http\Controllers\ChatbotController::class, 'message'])->name('chatbot.message');
+    Route::post('/chatbot/escalate', [App\Http\Controllers\ChatbotController::class, 'escalate'])->name('chatbot.escalate');
+});
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], function() {
 Route::get('/messages', [App\Http\Controllers\ContactController::class, 'index'])->name('messages');
@@ -109,4 +122,5 @@ Route::post('/projects/{project}/update', [App\Http\Controllers\ProjectsControll
 Route::get('/projects/{id}/delete',[App\Http\Controllers\ProjectsController::class,'destroy'])->name('delete_projects');
 Route::get('/projects/{id}/details',[App\Http\Controllers\ProjectsController::class,'show'])->name('show_projects');
 
+// Chatbot Route (admin area) -- removed to keep public endpoints singular
 });

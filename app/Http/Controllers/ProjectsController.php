@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\projects;
 use Illuminate\Http\Request;
-use App\Models\categories;
+use App\Models\Categories;
 
 
 class ProjectsController extends Controller
@@ -22,7 +22,7 @@ class ProjectsController extends Controller
         $page_data= ['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];// associative array
 
         $projects = projects::all();
-        $categories = categories::all();
+        $categories = Categories::all();
         //dd($projects);
         return view('Projects.index', compact('projects', 'page_data'));
     }
@@ -43,7 +43,7 @@ class ProjectsController extends Controller
         $description="create project";
         $page_data=['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];
 
-        $categories = categories::all();
+        $categories = Categories::all();
         return view('Projects.create', compact('page_data', 'categories'));
     }
 

@@ -23,15 +23,23 @@ class TeamsController extends Controller
         // dd('passed');
         return view('Teams.index', compact('teams', 'page_data'));
     }
-    public function teams()
+    public function teams(Request $request)
     {
             $title = "Our Expert Teams | IZIECHEM – Get in Touch for Quality Paints & Services";
             $keywords = "Iziechem teams, paint services Nigeria, wall screeding contact, interior painting inquiry";
             $description = "Reach out to IZIECHEM Teams for inquiries about our premium paint products and expert wall screeding services. We are here to assist you with all your painting and decorative finish needs in Nigeria.";
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
 
-            $teams = teams::all();
-        return view('Teams.teams', compact('page_data', 'teams')); 
+            $query = $request->input('query');
+
+            if ($query) {
+                $teams = teams::where('name', 'like', '%' . $query . '%')
+                    ->get();
+            } else {
+                $teams = teams::all();
+            }
+            
+        return view('Teams.teams', compact('page_data', 'teams', 'query')); 
     }
 
     /**

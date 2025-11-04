@@ -165,7 +165,7 @@
                         <div class="testimonials-contact__inner">
                             <div class="sec-title">
                                 <div class="d-flex align-items-center justify-content-start">
-                                    <img class="sec-title__image" src="assets/images/shapes/sec-title-s-2.png" alt="wallox image">
+                                    <img class="sec-title__image" src="assets/images/favicons/logo3.png" alt="wallox image">
                                     <h6 class="sec-title__tagline bw-split-in-right">get in touch</h6>
                                 </div>
                                 <h3 class="sec-title__title bw-split-in-up">How May We Help You!</h3>
@@ -194,7 +194,7 @@
                                             <textarea name="message" id="message" placeholder="Write Message"></textarea>
                                         </div>
                                         <div class="form-one__control form-one__control--full">
-                                            <button type="submit" class="wallox-btn wallox-btn__submite">Sand Message</button>
+                                            <button type="submit" class="wallox-btn wallox-btn__submite">Send Message</button>
                                         </div>
                                     </div>
                                 </form>
@@ -206,7 +206,7 @@
                     <div class="testimonials-contact__right">
                         <div class="sec-title text-start">
                             <div class="d-flex align-items-center justify-content-start">
-                                <img class="sec-title__image" src="assets/images/shapes/sec-title-s-1.png" alt="wallox image">
+                                <img class="sec-title__image" src="assets/images/favicons/logo3.png" alt="wallox image">
                                 <h6 class="sec-title__tagline bw-split-in-right">our testimonials</h6>
                             </div>
                             <h3 class="sec-title__title bw-split-in-up">What They Say About Our</h3>

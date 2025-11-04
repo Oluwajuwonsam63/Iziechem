@@ -238,36 +238,6 @@
                                             <!-- <img src="assets/images/resources/test1.png" alt="{{$testifier->name}}"> -->
                                         </div>
                                         @endforeach
-                                        <!-- <div class="testimonials-three__thumb__item">
-                                            <img src="assets/images/resources/test2.png" alt="iziechem">
-                                        </div>
-                                        <div class="testimonials-three__thumb__item">
-                                            <img src="assets/images/resources/test3.png" alt="iziechem">
-                                        </div>
-                                        <div class="testimonials-three__thumb__item">
-                                            <img src="assets/images/resources/test4.png" alt="iziechem">
-                                        </div>
-                                        <div class="testimonials-three__thumb__item">
-                                            <img src="assets/images/resources/test5.png" alt="iziechem">
-                                        </div>
-                                        <div class="testimonials-three__thumb__item">
-                                            <img src="assets/images/resources/test6.png" alt="iziechem">
-                                        </div>
-                                        <div class="testimonials-three__thumb__item">
-                                            <img src="assets/images/resources/test7.png" alt="iziechem">
-                                        </div>
-                                        <div class="testimonials-three__thumb__item">
-                                            <img src="assets/images/resources/test8.png" alt="iziechem">
-                                        </div>
-                                        <div class="testimonials-three__thumb__item">
-                                            <img src="assets/images/resources/test9.png" alt="iziechem">
-                                        </div>
-                                        <div class="testimonials-three__thumb__item">
-                                            <img src="assets/images/resources/test10.png" alt="iziechem">
-                                        </div>
-                                        <div class="testimonials-three__thumb__item">
-                                            <img src="assets/images/resources/test11.png" alt="iziechem">
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>

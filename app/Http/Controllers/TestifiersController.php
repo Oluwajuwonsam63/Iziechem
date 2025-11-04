@@ -21,7 +21,7 @@ class TestifiersController extends Controller
         $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
 
         // Eager load user relationship and get all results
-        $testifiers = Testifiers::with('user')
+        $testifiers = testifiers::with('user')
                         ->latest()
                         ->get();
         

@@ -97,7 +97,7 @@
                                     <i class="icon-idea"></i>
                                 </div>
                             </div>
-                            <h5 class="feature-one__item__title"><a href="service-d-pvc-panels.html">smart work</a></h5>
+                            <h5 class="feature-one__item__title"><a href="#!">smart work</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -107,7 +107,7 @@
                                     <i class="icon-interior-design"></i>
                                 </div>
                             </div>
-                            <h5 class="feature-one__item__title"><a href="service-d-outdoor-design.html">unique design</a></h5>
+                            <h5 class="feature-one__item__title"><a href="#!">unique design</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -117,7 +117,7 @@
                                     <i class="icon-team-leader"></i>
                                 </div>
                             </div>
-                            <h5 class="feature-one__item__title"><a href="service-d-room-wallpapers.html">skilled team</a></h5>
+                            <h5 class="feature-one__item__title"><a href="#!">skilled team</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -127,7 +127,7 @@
                                     <i class="icon-best-price"></i>
                                 </div>
                             </div>
-                            <h5 class="feature-one__item__title"><a href="service-d-wall-painting.html">best pricing</a></h5>
+                            <h5 class="feature-one__item__title"><a href="#!">best pricing</a></h5>
                         </div>
                     </div>
                 </div>
@@ -266,7 +266,7 @@
                     <div class="col-lg-6">
                         <div class="sec-title text-start">
                             <div class="d-flex align-items-center justify-content-start">
-                                <img class="sec-title__image" src="assets/images/shapes/sec-title-s-1.png" alt="iziechem">
+                                <img class="sec-title__image" src="assets/images/favicons/logo2.png" alt="iziechem">
                                 <h6 class="sec-title__tagline bw-split-in-right">freequently asked question</h6>
                             </div>
                             <h3 class="sec-title__title bw-split-in-up">Ultimately, quality work is judged by the extent</h3>
