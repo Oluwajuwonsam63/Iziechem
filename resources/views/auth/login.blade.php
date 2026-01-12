@@ -13,7 +13,7 @@ html, body {
 
 
         <!-- Login Start -->
-            <video autoplay muted loop style="position: fixed; top: 0; left: 0; width: 100vw; object-fit: cover; z-index: -1;">
+            <video autoplay muted loop style="position: fixed; top: 0; left: 0; height:100%; width: 100vw; object-fit: cover; z-index: -1;">
                 <source src="{{ asset('assets/vid/vid1.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -21,7 +21,7 @@ html, body {
                 <div class="row gutter-y-30 align-items-center justify-content-center">
                     <div class="col-xl-6">
                         <div class="login-page__right wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                            <div class="login-page__login-box" style="padding: 13px 30px; border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: 15px;">
+                            <div class="login-page__login-box">
                                 <div class="login-page__content">
                                     <div class="login-page__logo">
                                         <a href="{{ url('/') }}">
@@ -65,9 +65,9 @@ html, body {
                                                 <div class="login-page__input-box__btn">
                                                     <button type="submit" class="wallox-btn wallox-btn--base">{{ __('Sign in') }}</button>
                                                 </div>
-                                                <div class="login-page__input-box__btn">
+                                                {{-- <div class="login-page__input-box__btn">
                                                     <a href="{{ route('auth.google') }}" class="wallox-btn wallox-btn__google"><img src="assets/images/shapes/google.png" alt> {{ __('Or sign in with Google') }}</a>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </form>

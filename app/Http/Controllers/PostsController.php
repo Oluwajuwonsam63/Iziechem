@@ -111,6 +111,20 @@ class PostsController extends Controller
         return view('posts.show',compact('post', 'page_data'));
     }
 
+    public function info($id)
+    {
+        $title="post details";
+        $keywords="post";
+        $description="post details";
+        $page_data=['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];
+
+        $post= Posts::find($id);
+        $latestposts = posts::latest()->take(3)->get();
+        $allcategories = Categories::all()->shuffle()->take(2);
+        $allposts = Posts::all()->shuffle()->take(5);
+        return view('posts.info',compact('post', 'page_data', 'latestposts', 'allcategories', 'allposts'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

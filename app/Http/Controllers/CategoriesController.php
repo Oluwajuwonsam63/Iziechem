@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Posts;
+use App\Models\testifiers;
 use Illuminate\Http\Request;
 
 
@@ -114,16 +116,56 @@ class CategoriesController extends Controller
         $description="category details";
         $page_data=['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];
         $category= Categories::find($id);
+
+        $category->description = preg_replace_callback(
+            '/<oembed url="https:\/\/www\.youtube\.com\/watch\?v=([^"]+)"><\/oembed>/',
+            function ($matches) {
+                $videoId = $matches[1];
+                return '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . $videoId . '" frameborder="0" allowfullscreen></iframe>';
+            },
+            $category->description
+        );
+
+
+        
         return view('Categories.show',compact('category', 'page_data'));
     }
-    public function info($id)
+
+    public function list($categories_name)
+    {
+        $title="category details";
+        $keywords="category";
+        $description="category details";
+        $page_data=['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];
+        
+        $categories = Categories::where('name', $categories_name)->first();
+        if($categories){
+            $posts = Posts::where('category_id', $categories->id)->get();
+            return view('posts.list', compact('posts', 'categories', 'page_data'));
+        }
+        else{
+            return redirect('/');
+        }
+
+    }
+    public function info($name)
     {
         $title="category info";
         $keywords="category";
         $description="category info";
         $page_data=['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];
-        $category= Categories::find($id);
-        return view('Categories.info',compact('category', 'page_data'));
+        $category= Categories::find($name);
+        $testifiers = testifiers::all();
+
+        $category->description = preg_replace_callback(
+            '/<oembed url="https:\/\/www\.youtube\.com\/watch\?v=([^"]+)"><\/oembed>/',
+            function ($matches) {
+                $videoId = $matches[1];
+                return '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . $videoId . '" frameborder="0" allowfullscreen></iframe>';
+            },
+            $category->description
+        );
+        return view('Categories.info',compact('category', 'page_data', 'testifiers'));
     }
 
     /**

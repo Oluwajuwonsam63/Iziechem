@@ -14,6 +14,7 @@
 		"infinite": true,
 		"dots": true
 	}'>
+    
                 <div class="item">
                     <div class="hero-three__item">
                         <div class="hero-three__bg" style="background-image: url(assets/images/backgrounds/slider1.png);"></div>
@@ -159,7 +160,7 @@
                         <div class="about-two__right">
                             <div class="sec-title text-start">
                                 <div class="d-flex align-items-center justify-content-start">
-                                    <img class="sec-title__image" src="assets/images/shapes/sec-title-s-1.png" alt="iziechem">
+                                    <img class="sec-title__image" src="{{ asset('assets/images/favicons/logo3.png') }}" alt="iziechem">
                                     <h6 class="sec-title__tagline bw-split-in-right">welcome to iziechem</h6>
                                 </div>
                                 <h3 class="sec-title__title bw-split-in-up">We Focus to Make Your Walls Beautiful</h3>
@@ -523,38 +524,12 @@
                 <div class="sec-title text-center">
                     <div class="d-flex align-items-center justify-content-center">
                         <img class="sec-title__image" src="assets/images/favicons/logo2.png" alt="iziechem">
-                        <h6 class="sec-title__tagline bw-split-in-right">latest blog</h6>
+                        <h6 class="sec-title__tagline bw-split-in-right">Post</h6>
                     </div>
-                    <h3 class="sec-title__title bw-split-in-up">Our Latest Blog & News</h3>
+                    <h3 class="sec-title__title bw-split-in-up">Latest Updates</h3>
                 </div>
                 <div class="row gutter-y-30">
                     @foreach($posts->sortByDesc('created_at') as $post)
-                    {{-- <div class="col-lg-6">
-                        <div class="blog-three__left">
-                            <div class="blog-three__left__bg" style="background-image: url(assets/images/shapes/blog-card-bg.png);"></div>
-                            <div class="blog-three__inner wow fadeInLeft" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                                <div class="blog-three__card__item">
-                                    <div class="blog-card__date d-flex" style="width: 120px;"><span class="blog-card__date__day">{{$post->created_at->format('d')}}</span> <span class="blog-card__date__month">{{$post->created_at->format('M')}}</span> <span class="blog-card__date__day">{{$post->created_at->format('Y')}}</span></div>
-                                    <h3 class="blog-card__title"><a href="blog-details-right.html">{{$post->title}}</a></h3>
-                                    <ul class="blog-card__meta list-unstyled">
-                                        <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-user"></i>by {{$post->user->name}}</a></li>
-                                        <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-comments"></i>2 Comments</a></li>
-                                    </ul>
-                                </div>
-                                <div class="blog-three__card__item">
-                                    <div class="blog-card__date d-flex" style="width: 120px;"><span class="blog-card__date__day">{{$post->created_at->format('d')}}</span> <span class="blog-card__date__month">{{$post->created_at->format('M')}}</span> <span class="blog-card__date__day">{{$post->created_at->format('Y')}}</span></div>
-                                    <h3 class="blog-card__title"><a href="blog-details-right.html">{{$post->title}}</a></h3>
-                                    <ul class="blog-card__meta list-unstyled">
-                                        <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-user"></i>by {{$post->user->name}}</a></li>
-                                        <li class="blog-card__meta__item"><a href="blog-details.html"><i class="icon-comments"></i>2 Comments</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="blog-three__card__item__thumb wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='300ms'>
-                                <img src="{{asset('public/image/posts/'. $post->image)}}" style="height: 443px; width: 100%; object-fit: cover;" alt="iziechem">
-                            </div>
-                        </div>
-                    </div> --}}
                     <div class="col-lg-6">
                         <div class="blog-three__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='300ms'>
                             <div class="blog-three__item__bg" style="background-image: url(assets/images/shapes/blog-card-bg-1-1.png);"></div>
@@ -580,6 +555,11 @@
                         </div>
                     </div>
                     @endforeach
+                    <div class="col-lg-12">
+                        <div class="service-three__top__btn">
+                            <a href="{{ route('updates') }}" class="wallox-btn wallox-btn--border">view all post</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="client-carousel">

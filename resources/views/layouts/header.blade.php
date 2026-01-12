@@ -10,6 +10,25 @@
     <meta name="description" content="{{ $page_data['description'] }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+
+    <meta property="og:description" content="{{ $page_data['description'] }}" />
+    <meta property="og:title" content="{{ $page_data['title'] }}" />
+    <meta property="og:url" content="{{ url('/') }}" />
+    <meta property="og:type" content="Personal Business Portfolio" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image" content="{{ asset('assets/images/favicons/logo3.png') }}" />
+    <meta property="og:site_name" content="Iziechem Website" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="Iziechem" />
+    <meta name="twitter:title" content="{{ $page_data['title'] }}" />
+    <meta name="twitter:desciption" content="{{ $page_data['description'] }}" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:site" content="@iziechempaint1" />
+
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/favicons/logo2.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicons/logo3.png') }}">
@@ -29,6 +48,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
         integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous" defer>
     </script>
+    <script src="https://cdn.tiny.cloud/1/lcft4v6q2ezbb2xe5xizujcdof4wxvoi1mbnzyd6bney1j7h/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
+
+
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -58,6 +83,7 @@
     <!-- template styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/wallox.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/iziechem.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/ckeditor5/ckeditor5.css') }}">
 </head>
 
 <body class="custom-cursor">
@@ -87,8 +113,8 @@
                             <div class="topbar-one__info__icon">
                                 <i class="icon-email"></i>
                             </div>
-                            <a href="mailto:info@wallox.com"
-                                class="topbar-one__info__content">israeljoshua026@gmail.com</a>
+                            <a href="mailto:iziechempaint026@gmail.com"
+                                class="topbar-one__info__content">iziechempaint026@gmail.com</a>
                         </li>
                         <li class="topbar-one__info__item">
                             <div class="topbar-one__info__icon">
@@ -130,78 +156,81 @@
                         </a>
                     </div>
 
-                    
+
                     <nav class="main-header__nav main-menu">
                         <ul class="main-menu__list">
                             @if (Auth::user() && Auth::user()->is_admin)
-                            <li class="dropdown space">
-                                <a href="#" class="dropdown-toggle">Dashboard</a>
-                                <ul class="sub-menu">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle">Messages</a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('messages') }}">{{ __('All Messages') }}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle">Categories</a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('all_categories') }}">{{ __('All Category') }}</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('create_category') }}">{{ __('Create') }}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle">Posts</a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('all_posts') }}">{{ __('All Post') }}</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('create_posts') }}">{{ __('Create') }}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle">Testifier</a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('all_testifiers') }}">{{ __('All Testifier') }}</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('create_testifiers') }}">{{ __('Create') }}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle">Teams</a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('all_teams') }}">{{ __('All Teams') }}</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('create_teams') }}">{{ __('Create') }}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle">Project</a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="{{ route('all_projects') }}">{{ __('All_Project') }}</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('create_projects') }}">{{ __('Create') }}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+                                <li class="dropdown space">
+                                    <a href="#" class="dropdown-toggle">Dashboard</a>
+                                    <ul class="sub-menu">
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle">Messages</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="{{ route('messages') }}">{{ __('All Messages') }}</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle">Categories</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a
+                                                        href="{{ route('all_categories') }}">{{ __('All Category') }}</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('create_category') }}">{{ __('Create') }}</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle">Posts</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="{{ route('all_posts') }}">{{ __('All Post') }}</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('create_posts') }}">{{ __('Create') }}</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle">Testifier</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a
+                                                        href="{{ route('all_testifiers') }}">{{ __('All Testifier') }}</a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="{{ route('create_testifiers') }}">{{ __('Create') }}</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle">Teams</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="{{ route('all_teams') }}">{{ __('All Teams') }}</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('create_teams') }}">{{ __('Create') }}</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle">Project</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="{{ route('all_projects') }}">{{ __('All_Project') }}</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('create_projects') }}">{{ __('Create') }}</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
                             @endif
                             <li class="megamenu">
                                 <a href="{{ url('/') }}">Home</a>
@@ -346,12 +375,10 @@
                                                     </a>
                                                     <ul>
                                                         <li class="dropdown">
-                                                            <a
-                                                                href="{{ route('all_teams') }}">{{ __('All Teams') }}</a>
+                                                            <a href="{{ route('all_teams') }}">{{ __('All Teams') }}</a>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a
-                                                                href="{{ route('create_teams') }}">{{ __('Create') }}</a>
+                                                            <a href="{{ route('create_teams') }}">{{ __('Create') }}</a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -420,7 +447,7 @@
                 <div class="container">
                     <div class="main-footer__top__inner">
                         <div class="main-footer__logo">
-                            <a href="index.html" class="footer-logo">
+                            <a href="{{ url('/') }}" class="footer-logo">
                                 <img src="{{ asset('assets/images/logo.png') }}" width="202"
                                     alt="Wallox HTML Template">
                             </a>
@@ -433,12 +460,14 @@
                                     @csrf
                                     <div id="success">
                                         <span class="icon-email main-footer__form__newsletter__icon"></span>
-                                        <input type="text" name="email" placeholder="john@example.com">
-                                        <button type="submit" onclick="alert('Thank you for subscribing!')" class="wallox-btn note1">Subscribe<i class="bi bi-bell-fill"></i></button>
+                                        <input type="text" name="email" placeholder="john@example.com"
+                                            autocomplete="name">
+                                        <button type="submit" onclick="alert('Thank you for subscribing!')"
+                                            class="wallox-btn note1">Subscribe<i class="bi bi-bell-fill"></i></button>
                                     </div>
                                 </form> <br>
                                 @include('includes.flash')
-                                    
+
                                 {{-- <div class="mc-form__response"></div> --}}
                             </div>
                         </div>
@@ -474,8 +503,8 @@
                                     and decorative finishes. From interiors to exteriors, our team delivers flawless
                                     results using quality materials and skilled craftsmanship—giving every space lasting
                                     beauty.</p>
-                                <a href="{{ route('teams') }}" class="wallox-btn footer-widget__btn">get consultant <i
-                                        class="icon-up-right-arrow1"></i></a>
+                                <a href="{{ route('teams') }}" class="wallox-btn footer-widget__btn">get consultant
+                                    <i class="icon-up-right-arrow1"></i></a>
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-3">
@@ -483,12 +512,18 @@
                                 data-wow-delay='300ms'>
                                 <h2 class="footer-widget__title bw-split-in-right">Explore Links</h2>
                                 <ul class="footer-widget__links list-unstyled">
-                                    <li><i class="fas fa-circle"></i><a href="{{ url('/about') }}"> About us</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="{{ url('/contact') }}"> Contact us</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="{{ url('/teams') }}"> Our Team</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="{{ url('/service') }}"> Our Services</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="{{ url('/project') }}"> Latest Projects</a></li>
-                                    <li><i class="fas fa-circle"></i><a href="{{ url('/updates') }}"> Latest Update</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="{{ url('/about') }}"> About us</a>
+                                    </li>
+                                    <li><i class="fas fa-circle"></i><a href="{{ url('/contact') }}"> Contact us</a>
+                                    </li>
+                                    <li><i class="fas fa-circle"></i><a href="{{ url('/teams') }}"> Our Team</a>
+                                    </li>
+                                    <li><i class="fas fa-circle"></i><a href="{{ url('/service') }}"> Our
+                                            Services</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="{{ url('/project') }}"> Latest
+                                            Projects</a></li>
+                                    <li><i class="fas fa-circle"></i><a href="{{ url('/updates') }}"> Latest
+                                            Update</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -497,10 +532,23 @@
                                 data-wow-delay='500ms'>
                                 <h2 class="footer-widget__title bw-split-in-right">Our Services</h2>
                                 <ul class="footer-widget__links list-unstyled">
-                                @foreach($categories->sortByDesc('created_at')->take(6) as $cat)
+                                    {{-- @foreach ($categories->take(6) as $cat)
                                     <li><i class="fas fa-circle"></i><a href="{{ route('info_category', $cat->id) }}">{{$cat->name}}</a></li>
-                                @endforeach
-                                </ul> 
+                                @endforeach --}}
+                                    @if (isset($all_categories) && $all_categories)
+                                        @foreach ($all_categories->sortByDesc('created_at')->take(6) as $cat)
+                                            <li><i class="fas fa-circle"></i><a
+                                                    href="{{ route('info_category', $cat->id) }}">{{ $cat->name }}</a>
+                                            </li>
+                                        @endforeach
+                                    @elseif(isset($categories) && $categories)
+                                        @foreach ($categories->take(6) as $cat)
+                                            <li><i class="fas fa-circle"></i><a
+                                                    href="{{ route('info_category', $cat->id) }}">{{ $cat->name }}</a>
+                                            </li>
+                                        @endforeach
+                                    @endif
+                                </ul>
                             </div>
                         </div>
                         <div class="col-md-6 col-xl-3">
@@ -522,8 +570,8 @@
                                     </li>
                                     <li>
                                         <i class="icon-message"></i>
-                                        <a href="mailto:info@wallox.com"
-                                            class="footer-widget__contact__link">israeljoshua026@gmail.com</a>
+                                        <a href="mailto:iziechempaint026@gmail.com"
+                                            class="footer-widget__contact__link">iziechempaint026@gmail.com</a>
                                     </li>
                                 </ul>
                             </div>
@@ -554,12 +602,12 @@
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="{{ asset('assets/images/logo.png') }}"
-                        width="155" alt=" wallox image"></a>
+                <a href="{{ url('/') }}" aria-label="logo image"><img
+                        src="{{ asset('assets/images/logo.png') }}" width="155" alt=" wallox image"></a>
             </div>
             <!-- /.logo-box -->
             <div class="mobile-nav__container">
-                    
+
             </div>
             <!-- /.mobile-nav__container -->
 
@@ -567,18 +615,22 @@
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <div class="footer-widget footer-widget--about wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
-                                <a href="{{ route('login') }}" class="wallox-btn footer-widget__btn">{{ __('Sign in') }}
+                            <div class="footer-widget footer-widget--about wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <a href="{{ route('login') }}"
+                                    class="wallox-btn footer-widget__btn">{{ __('Sign in') }}
                                     {{-- <i class="icon-up-right-arrow1"></i> --}}
                                 </a>
-                            </div>                        
+                            </div>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <div class="footer-widget footer-widget--about wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
-                                <a href="{{ route('register') }}" class="wallox-btn footer-widget__btn">{{ __('Sign up') }}
+                            <div class="footer-widget footer-widget--about wow fadeInUp" data-wow-duration='1500ms'
+                                data-wow-delay='100ms'>
+                                <a href="{{ route('register') }}"
+                                    class="wallox-btn footer-widget__btn">{{ __('Sign up') }}
                                     {{-- <i class="icon-up-right-arrow1"></i> --}}
                                 </a>
                             </div>
@@ -586,25 +638,26 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <li class="nav-item">
-                            <div class="footer-widget footer-widget--about wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
-                                <a href="{{ route('logout') }}" class="wallox-btn footer-widget__btn"
-                                    onclick="event.preventDefault();
+                    <li class="nav-item">
+                        <div class="footer-widget footer-widget--about wow fadeInUp" data-wow-duration='1500ms'
+                            data-wow-delay='100ms'>
+                            <a href="{{ route('logout') }}" class="wallox-btn footer-widget__btn"
+                                onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
                 @endguest
             </ul>
 
             <ul class="mobile-nav__contact list-unstyled">
                 <li>
                     <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@wallox.com">israeljoshua026@gmail.com</a>
+                    <a href="mailto:iziechempaint026@gmail.com">iziechempaint026@gmail.com</a>
                 </li>
                 <li>
                     <i class="fa fa-phone-alt"></i>
@@ -640,9 +693,9 @@
                     <span><i class="icon-search"></i></span>
                 </button>
             </form>
-            {{-- @if(request()->has('query'))
-                @if(isset($posts))
-                    @foreach($posts as $post)
+            {{-- @if (request()->has('query'))
+                @if (isset($posts))
+                    @foreach ($posts as $post)
                         <p class="d-none"> {{ $post->title }} - {{ $post->description }} </p>
                     @endforeach
                 @else
@@ -659,7 +712,7 @@
     </a>
 
     {{-- add this near the end of your main layout --}}
-    @include('components.chatbot')
+    @include('components.livewire')
 
 
 
@@ -704,6 +757,69 @@
         document.getElementById("success").innerHTML = @include('includes.flash');
         }
     </script> --}}
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector("#editor"), {
+                toolbar: [
+                    'undo', 'redo', 'heading', '|',
+                    'bold', 'italic', 'link', 'uploadImage', 'mediaEmbed', '|',
+                    'insertTable', 'blockQuote', '|',
+                    'numberedList', 'bulletedList', 'outdent', 'indent'
+                ],
+                image: {
+                    toolbar: ['imageTextAlternative', 'imageStyle:side', 'imageStyle:side']
+                }
+            })
+            .then(editor => {
+                editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                    return new UploadAdapter(loader);
+                };
+
+                class UploadAdapter {
+                    constructor(loader) {
+                        this.loader = loader;
+                    }
+
+                    upload() {
+                        return this.loader.file.then(file => {
+                            const data = new FormData();
+                            data.append('upload', file);
+                            data.append('_token', '{{ csrf_token() }}');
+
+                            return fetch('{{ url('/upload-image/') }}', {
+                                    method: 'POST',
+                                    headers: {
+                                        'X-Requested-With': 'XMLHttpRequest'
+                                    },
+                                    body: data
+                                })
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Upload failed with status ' + response.status);
+                                    }
+                                    return response.json();
+                                })
+                                .then(result => {
+                                    if (result.url) {
+                                        return {
+                                            default: result.url
+                                        };
+                                    } else {
+                                        throw new Error(result.error || 'Upload failed');
+                                    }
+                                });
+                        });
+                    }
+
+                    abort() {}
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
     @yield('scripts')
 </body>
 

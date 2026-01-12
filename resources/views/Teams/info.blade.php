@@ -78,7 +78,7 @@
             </div>
         </section>
 
-        <section class="team-skills-one">
+        {{-- <section class="team-skills-one">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -128,5 +128,5 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 @endSection

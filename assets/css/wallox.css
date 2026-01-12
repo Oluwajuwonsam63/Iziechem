@@ -3519,7 +3519,6 @@ h6 {
 .main-header__right {
   display: flex;
   align-items: center;
-  margin-left: 8px;
 }
 .main-header__right__info {
   display: flex;
@@ -8864,10 +8863,9 @@ body.megamenu-popup-active .mobile-nav__content {
 .login-page__login-box {
   position: relative;
   background: var(--wallox-gray, #F4EDE4);
-  padding: 10px 30px;
+  padding: 30px 10px;
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-  margin-top: 15px; 
 }
 .login-page__content {
   max-width: 557px;
@@ -12452,6 +12450,22 @@ body.megamenu-popup-active .mobile-nav__content {
   position: absolute;
   writing-mode: vertical-rl;
 }
+@media only screen and (max-width: 600px) {
+    .about-one__funfact {
+    border-radius: 100px;
+    background-color: var(--wallox-base, #DF9E42);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 300px;
+    bottom: 10px;
+    left: 10px;
+    transform: rotate(-180deg);
+    position: absolute;
+    writing-mode: vertical-rl;
+  }
+}
+
 .about-one__count {
   margin-bottom: 0;
   padding-bottom: 0;
@@ -12465,7 +12479,7 @@ body.megamenu-popup-active .mobile-nav__content {
   align-items: center;
   justify-content: center;
   width: 91px;
-  height: 113px;
+  height: 100px;
   background: #FFFFFF;
   border-radius: 100px;
   margin: 0;

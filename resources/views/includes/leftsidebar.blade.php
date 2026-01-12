@@ -2,22 +2,24 @@
                         <div class="sidebar">
                             <aside class="widget-area">
                                 <div class="sidebar__form sidebar__single wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                                    <h4 class="sidebar__title sidebar__form__title">search here</h4>
+                                    {{-- <h4 class="sidebar__title sidebar__form__title">search here</h4> --}}
                                             <form action="{{ url('/searchs') }}" method="GET" class="sidebar__search">
                                                 <input type="search" id="search-input" name="query" placeholder="Search Here"><div id="search-input"></div>
                                                 <button type="submit" aria-label="search submit" class="sidebar__search__icon">
                                                     <i class="icon-search"></i>
                                                 </button>
                                             </form>
-                                            @if(request()->has('query'))
-                                                @if(isset($posts))
-                                                    @foreach($posts as $post)
-                                                       <p class="d-none"> {{ $post->title }} - {{ $post->description }} </p>
-                                                    @endforeach
-                                                @else
-                                                    <p>No Result Found.</p>
+                                                @if(request()->has('query'))
+                                                    @if(isset($posts))
+                                                        @foreach($posts as $post)
+                                                        <p class="d-none"> {{ $post->title }} - {{ $post->description }} </p>
+                                                        @endforeach
+                                                    @else
+                                                        <p>No Result Found.</p>
+                                                    @endif
                                                 @endif
-                                            @endif
+
+                                            
                                 </div>
                                 <div class="sidebar__posts-wrapper sidebar__single wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
                                     <h4 class="sidebar__title">Latest Updates</h4>
@@ -30,7 +32,7 @@
                                             </div>
                                             <div class="sidebar__posts__content">
                                                 <div class="sidebar__posts__meta"><a href="#"><span class="sidebar__posts__meta__icon"><i class="icon-user"></i></span>{{explode(' ', $post->user->name)[0]}} {{explode(' ', $post->user->name)[2]}}</a></div>
-                                                <h4 class="sidebar__posts__title"><a href="blog-details-right.html">{{$post->title}}</a></h4>
+                                                <h4 class="sidebar__posts__title"><a href="{{route('info_posts', $post->id)}}">{{$post->title}}</a></h4>
                                             </div>
                                         </li>
                                         @endforeach
@@ -39,25 +41,26 @@
                                 <div class="sidebar__categories-wrapper sidebar__single wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
                                     <h4 class="sidebar__title">Categories</h4>
                                     <ul class="sidebar__categories list-unstyled">
-                                        <li><a href="#">Wood-Look Tiles <span>(4)</span></a></li>
-                                        <li><a href="#">Metal Tiles<span>(2)</span></a></li>
-                                        <li><a href="#">Penny Tiles<span>(6)</span></a></li>
-                                        <li><a href="#">Hexagonal Tiles<span>(9)</span></a></li>
-                                        <li><a href="#">Patterned Tiles<span>(10)</span></a></li>
+                                        @if(isset($all_categories) && $all_categories)
+                                        @foreach($all_categories->sortByDesc('created_at') as $cat)
+                                        <li><a href="{{ route('list_updates', ['category_name' => $cat->name]) }}">{{$cat->name}}<span class="badge"></span></a></li>
+                                        @endforeach
+                                        @elseif(isset($categories) && $categories)
+                                        @foreach($categories->sortByDesc('created_at') as $cat)
+                                        <li><a href="{{ route('list_updates', ['category_name' => $cat->name]) }}">{{$cat->name}}<span></span></a></li>
+                                        @endforeach
+                                        @endif
                                     </ul>
                                 </div>
                                 <div class="sidebar__tags-wrapper sidebar__single wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
                                     <h4 class="sidebar__title">Tags</h4>
                                     <div class="sidebar__tags">
-                                        <a href="#" class="ploming-btn">wallpaper</a>
-                                        <a href="#" class="ploming-btn">Sticker</a>
-                                        <a href="#" class="ploming-btn">PVC scticker</a>
-                                        <a href="#" class="ploming-btn">interior design</a>
-                                        <a href="#" class="ploming-btn">sheets</a>
-                                        <a href="#" class="ploming-btn">wall</a>
+                                        @foreach($allposts->sortByDesc('created_at') as $post)
+                                        <a href="{{route('info_posts', $post->id)}}" class="ploming-btn">{{$post->title}}</a>
+                                        @endforeach
                                     </div>
                                 </div>
-                                <div class="sidebar__comments-wrapper sidebar__single wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
+                                {{-- <div class="sidebar__comments-wrapper sidebar__single wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
                                     <h4 class="sidebar__title">Comments</h4>
                                     <ul class="sidebar__comments list-unstyled">
                                         <li class="sidebar__comments__item">
@@ -85,7 +88,7 @@
                                             </h6>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> --}}
                             </aside>
                         </div>
                     </div>

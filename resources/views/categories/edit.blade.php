@@ -13,7 +13,7 @@
 
     <section class="login-page">
         <div class="container">
-            <div class="row gutter-y-30 align-items-center">
+            <div class="row gutter-y-30 align-items-center justify-content-center">
                     @include('includes.create')
                 <div class="col-xl-6">
                     <div class="login-page__right wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='500ms'>
@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="login-page__input-box">
                                             <label for="description">{{ __('Description') }}</label>
-                                            <textarea col='30' rows="10" id="description"  class="form-control" name="description" required autocomplete="description">{{old('description', $category->description)}}</textarea>
+                                            <textarea col='30' rows="10" id="editor"  class="form-control" name="description" autocomplete="description">{{old('description', $category->description)}}</textarea>
                                             
                                             @error('Name')
                                                 <span class="invalid-feedback" role="alert">

@@ -49,8 +49,17 @@
                                 </div>
                                 <div class="contact-one__item__content">
                                     <h5 class="contact-one__item__title">support email</h5>
-                                    <a href="#" class="contact-one__item__call">israeljoshua026@gmail.com</a>
-                                    <!-- <a href="#" class="contact-one__item__call">info@wallox.com</a> -->
+                                    <a href="mailto:iziechempaint026@gmail.com" class="contact-one__item__call">iziechempaint026@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-one__item">
+                                <div class="contact-one__item__icon">
+                                    <i class="icon-telephone"></i>
+                                </div>
+                                <div class="contact-one__item__content">
+                                    <h5 class="contact-one__item__title">Quick Contact</h5>
+                                    <a href="tel:+234-903-696-9352" class="contact-one__item__call">+234 903 696 9352</a>
+                                    <a href="tel:+234-701-080-0585" class="contact-one__item__call">+234 701 080 0585</a>
                                 </div>
                             </div>
                         </div>
@@ -74,13 +83,13 @@
                                         @csrf
                                         <div class="form-one__group">
                                             <div class="form-one__control form-one__control--full">
-                                                <input type="text" name="name" placeholder="name" value="{{ old('name') }}" required>
+                                                <input type="text" name="name" placeholder="name" value="{{ old('name') }}" required autocomplete="name">
                                             </div>
                                             <div class="form-one__control form-one__control--full">
-                                                <input type="email" name="email" placeholder="Email address" value="{{ old('email') }}" required>
+                                                <input type="email" name="email" placeholder="Email address" value="{{ old('email') }}" required autocomplete="email">
                                             </div>
                                             <div class="form-one__control form-one__control--full">
-                                                <input type="text" name="subject" placeholder="select subject" value="{{ old('subject') }}" required>
+                                                <input type="text" name="subject" placeholder="select subject" value="{{ old('subject') }}" required autocomplete="subject">
                                             </div>
                                             <div class="form-one__control form-one__control--full">
                                                 <textarea name="message" placeholder="Write  a message" required></textarea>

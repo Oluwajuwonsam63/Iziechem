@@ -20,7 +20,7 @@
                     <div class="col-lg-6">
                         <div class="about-one__thumb">
                             <div class="about-one__thumb__item real-image">
-                                <img src="assets/images/about/about1.png" alt="wallox image">
+                                <img src="assets/images/about/about1.png" alt="iziechem image">
                             </div>
                             <div class="about-one__funfact count-box">
                                 <h3 class="about-one__count">
@@ -35,7 +35,7 @@
                         <div class="about-one__right">
                             <div class="sec-title text-start">
                                 <div class="d-flex align-items-center justify-content-start">
-                                    <img class="sec-title__image" src="assets/images/shapes/sec-title-s-1.png" alt="wallox image">
+                                    <img class="sec-title__image" src="{{ asset('assets/images/favicons/logo3.png') }}" alt="iziechem image">
                                     <h6 class="sec-title__tagline bw-split-in-right">welcome to Iziechem</h6>
                                 </div>
                                 <h3 class="sec-title__title bw-split-in-up">We’re Providing Quality Wall Designs</h3>
@@ -44,7 +44,7 @@
                             <div class="row align-items-center gutter-y-30">
                                 <div class="col-sm-6">
                                     <div class="about-one__video">
-                                        <img src="assets/images/about/video-bg.jpg" alt="wallox image">
+                                        <img src="assets/images/about/video-bg.jpg" alt="iziechem image">
                                         <div class="about-one__video-popup">
                                             <a href="https://www.youtube.com/watch?v=y_MIu6bFDl8" class="about-one__video video-popup">
                                                 <i class="icon-polygon"></i>
@@ -97,7 +97,7 @@
                     <div class="col-lg-6">
                         <div class="sec-title text-start">
                             <div class="d-flex align-items-center justify-content-start">
-                                <img class="sec-title__image" src="assets/images/shapes/sec-title-s-1.png" alt="wallox image">
+                                <img class="sec-title__image" src="{{ asset('assets/images/favicons/logo3.png') }}" alt="iziechem image">
                                 <h6 class="sec-title__tagline bw-split-in-right">why choose us?</h6>
                             </div>
                             <h3 class="sec-title__title bw-split-in-up">Leading Provider Of Interior Service In Nigeria</h3>
@@ -146,7 +146,7 @@
             <div class="container">
                 <div class="sec-title text-center">
                     <div class="d-flex align-items-center justify-content-center">
-                        <img class="sec-title__image" src="assets/images/shapes/sec-title-s-1.png" alt="wallox image">
+                        <img class="sec-title__image" src="{{ asset('assets/images/favicons/logo3.png') }}" alt="iziechem image">
                         <h6 class="sec-title__tagline bw-split-in-right">our testimonials</h6>
                     </div>
                     <h3 class="sec-title__title bw-split-in-up">What They Talked <br> About Iziechem</h3>
@@ -224,7 +224,7 @@
                         <div class="col-lg-8">
                             <div class="sec-title">
                                 <div class="d-flex align-items-center justify-content-start">
-                                    <img class="sec-title__image" src="assets/images/shapes/sec-title-s-3.png" alt="iziechem">
+                                    <img class="sec-title__image" src="{{ asset('assets/images/favicons/logo3.png') }}" alt="iziechem">
                                     <h6 class="sec-title__tagline bw-split-in-right">our team</h6>
                                 </div>
                                 <h3 class="sec-title__title bw-split-in-up">Meet the Expert Team</h3>
@@ -310,8 +310,8 @@
                     <div class="col-lg-6">
                         <div class="sec-title text-start">
                             <div class="d-flex align-items-center justify-content-start">
-                                <img class="sec-title__image" src="assets/images/shapes/sec-title-s-1.png" alt="iziechem">
-                                <h6 class="sec-title__tagline bw-split-in-right">freequently asked question</h6>
+                                <img class="sec-title__image" src="{{ asset('assets/images/favicons/logo3.png') }}" alt="iziechem">
+                                <h6 class="sec-title__tagline bw-split-in-right">frequently asked question</h6>
                             </div>
                             <h3 class="sec-title__title bw-split-in-up">Ultimately, quality work is judged by the extent</h3>
                         </div>

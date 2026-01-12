@@ -35,7 +35,6 @@ class WebController extends Controller
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
         
             $query = $request->input('query');
-
             if ($query) {
                 $categories = Categories::where('name', 'like', '%' . $query . '%')
                     ->get();
@@ -77,46 +76,61 @@ class WebController extends Controller
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
 
             $query = $request->input('query');
-
-            if ($query) {
-                $posts = Posts::where('name', 'like', '%' . $query . '%')
-                    ->get();
-            } else {
-                $posts = Posts::all();
-            }
+            $posts = Posts::where('title', 'like', '%' . $query . '%')
+                    ->orwhere('description', 'LIKE', '%' . $query . '%')
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(10);
+                    
             $latestposts = posts::latest()->take(3)->get();
-        return view('posts.updates', compact('page_data', 'posts', 'latestposts', 'query'));
+            $categories = Categories::all();
+            $allposts = Posts::all()->shuffle()->take(5);
+        return view('posts.updates', compact('page_data', 'posts', 'latestposts', 'query', 'categories', 'allposts'));
+    }
+
+    public function list(Request $request, $categories_name)
+    {
+        $title="category details";
+        $keywords="category";
+        $description="category details";
+        $page_data=['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];
+
+        $query = $request->input('query');
+        $posts = Posts::where('title', 'like', '%' . $query . '%')
+                        ->orwhere('description', 'LIKE', '%' . $query . '%')
+                        ->paginate(10);
+            $latestposts = posts::latest()->take(3)->get();
+        
+        $categories = Categories::where('name', $categories_name)->first();
+        // dd($categories);
+        if($categories){
+            $posts = Posts::where('category_id', $categories->id)->orderBy('created_at', 'desc')->paginate(1);
+            $all_categories = Categories::all();
+            $allposts = Posts::all()->shuffle()->take(5);
+            return view('posts.updateslist', compact('posts', 'categories', 'page_data', 'latestposts', 'query', 'all_categories', 'allposts'));
+        }
+        else{
+            return redirect()->back();
+        }
+
     }
     public function contact()
     {
             $title = "Contact Us | IZIECHEM – Get in Touch for Quality Paints & Services";
             $keywords = "contact IZIECHEM, paint services Nigeria, wall screeding contact, interior painting inquiry";
-            $description = "Reach out to IZIECHEM for inquiries about our premium paint products and expert wall screeding services. We are here to assist you with all your painting and decorative finish needs in Nigeria.";
+            $description = "Reach out to IZIECHEM for inquiries about our premium paint products and expert wall screeding services. We are here to assist you with all your painting and decorative needs in Nigeria.";
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
         return view('contact', compact('page_data')); 
     }
-    public function search(Request $request)
-    {
-            $title = "Updates & Tips | Painting & Interior Design Trends – IZIECHEM";
-            $keywords = "painting tips Nigeria, interior design updates, wall decoration blog, IZIECHEM news";
-            $description = "Stay updated with the latest painting trends, wall design ideas, and interior decoration tips. Read helpful guides and news from IZIECHEM.";
-            $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
-
-            $query = $request->input('query');
-            $posts = Posts::where('title', 'LIKE', '%' . $query . '%')
-                            ->orwhere('description', 'LIKE', '%' . $query . '%')
-                            ->get();
-            
-            $latestposts = posts::latest()->take(3)->get();
-        return view('posts.updates', compact('query', 'posts', 'page_data', 'latestposts'));
-    }
-
     public function allsearch(Request $request)
     {
             $title = "Updates & Tips | Painting & Interior Design Trends – IZIECHEM";
             $keywords = "painting tips Nigeria, interior design updates, wall decoration blog, IZIECHEM news";
             $description = "Stay updated with the latest painting trends, wall design ideas, and interior decoration tips. Read helpful guides and news from IZIECHEM.";
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
+
+            $latestposts = posts::latest()->take(3)->get();
+            $categories = Categories::all();
+            $allposts = Posts::all()->shuffle()->take(5);
 
             $query = $request->input('query');
             if (Posts::where('title', 'LIKE', '%' . $query . '%')->orwhere('description', 'LIKE', '%' . $query . '%')->exists()){
@@ -128,10 +142,11 @@ class WebController extends Controller
             }elseif(teams::where('name', 'LIKE', '%' . $query . '%')->orwhere('role', 'LIKE', '%' . $query . '%')->exists()){
                 return redirect()->route('teams', ['query' => $query]);
             }else{
-                return redirect()->back();
+                return view('noresult', ['query' => $query, 'page_data' => $page_data, 'latestposts' => $latestposts, 'categories' => $categories, 'allposts'=> $allposts]);
             }
-            $latestposts = posts::latest()->take(3)->get();
     }
+    
+    //Update Current Search View
     public function searchs(Request $request)
     {
             $title = "Updates & Tips | Painting & Interior Design Trends – IZIECHEM";
@@ -139,12 +154,49 @@ class WebController extends Controller
             $description = "Stay updated with the latest painting trends, wall design ideas, and interior decoration tips. Read helpful guides and news from IZIECHEM.";
             $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
 
+            $latestposts = posts::latest()->take(3)->get();
+            $categories = Categories::all();
+            $allposts = Posts::all()->shuffle()->take(5);
+            
             $query = $request->input('query');
-            $posts = Posts::where('title', 'LIKE', '%' . $query . '%')
-                            ->orwhere('description', 'LIKE', '%' . $query . '%')
-                            ->get();
+            // $posts = Posts::where('title', 'LIKE', '%' . $query . '%')
+            //                 ->orwhere('description', 'LIKE', '%' . $query . '%')
+            //                 ->orderBy('created_at', 'desc')
+            //                 ->paginate();
+
+            if (Posts::where('title', 'LIKE', '%' . $query . '%')->orwhere('description', 'LIKE', '%' . $query . '%')->orderBy('created_at', 'desc')->exists()){
+                return redirect()->route('updates', ['query' => $query]);
+            }else{
+                return view('noresult', ['query' => $query, 'page_data' => $page_data, 'latestposts' => $latestposts, 'categories' => $categories, 'allposts'=> $allposts]);
+            }
             
             $latestposts = posts::latest()->take(3)->get();
-        return view('posts.updates', compact('query', 'posts', 'page_data', 'latestposts'));
+            $categories = Categories::all();
+            $allposts = Posts::all()->shuffle()->take(5);
+        return view('posts.updates', compact('query', 'posts', 'page_data', 'latestposts', 'categories', 'allposts'));
+    }
+
+    public function noresult()
+    {
+            $title = "Updates & Tips | Painting & Interior Design Trends – IZIECHEM";
+            $keywords = "painting tips Nigeria, interior design updates, wall decoration blog, IZIECHEM news";
+            $description = "Stay updated with the latest painting trends, wall design ideas, and interior decoration tips. Read helpful guides and news from IZIECHEM.";
+            $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
+
+            $query = $request->input('query');
+
+        return view('noresult', compact('page_data', 'query'));
+    }
+
+    public function notfound()
+    {
+            $title = "Updates & Tips | Painting & Interior Design Trends – IZIECHEM";
+            $keywords = "painting tips Nigeria, interior design updates, wall decoration blog, IZIECHEM news";
+            $description = "Stay updated with the latest painting trends, wall design ideas, and interior decoration tips. Read helpful guides and news from IZIECHEM.";
+            $page_data = ['title' => $title, 'keywords' => $keywords, 'description' => $description];
+
+
+
+        return view('error.404', compact('page_data'));
     }
 }

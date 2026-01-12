@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 use App\Models\Categories;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         Schema::defaultStringLength(191);
 
@@ -33,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
         try {
             // Cache categories for 60 minutes to avoid querying DB on every request (improves performance)
             $cats = Cache::remember('shared_categories', 60, function () {
-                return Categories::all();
+                return Categories::orderBy('created_at', 'desc')->get();
             });
             View::share('categories', $cats);
         } catch (\Throwable $e) {
@@ -41,6 +42,9 @@ class AppServiceProvider extends ServiceProvider
             // share an empty collection to prevent undefined variable errors in views.
             View::share('categories', collect([]));
         }
+
+        // bootstrap5
+        Paginator::useBootstrap();
     }
 
     public function search(Request $request)

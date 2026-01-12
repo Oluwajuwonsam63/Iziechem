@@ -27,6 +27,8 @@ class Categories extends Model
 
     public function posts()
     {
-        return $this->hasMany(app\modes\posts::class);
+        return $this->hasMany(Posts::class);
     }
+
+    
 }

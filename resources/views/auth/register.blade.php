@@ -77,9 +77,9 @@ html, body {
                                                 <div class="login-page__input-box__btn">
                                                     <button type="submit" class="wallox-btn wallox-btn--base">{{ __('Sign Up') }}</button>
                                                 </div>
-                                                <div class="login-page__input-box__btn">
+                                                {{-- <div class="login-page__input-box__btn">
                                                     <a href="{{ route('auth.google') }}" class="wallox-btn wallox-btn__google"><img src="assets/images/shapes/google.png" alt> {{ __('Or sign up with Google') }}</a>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </form>

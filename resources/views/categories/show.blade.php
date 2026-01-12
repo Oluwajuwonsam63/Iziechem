@@ -18,7 +18,7 @@
                     {{$category->name}}
                 </div>
                 <div class="card-body">
-                    {{$category->description}}
+                    {!!$category->description!!}
                 </div>
             </div>
         </div>
