@@ -39,7 +39,7 @@
             <td>{{$cat->keywords}}</td>
             <td>{{$cat->meta_desc}}</td>
             <td><img src="{{asset('public/image/categories/'. $cat->image)}}" alt="" style="max-width: 50px;"></td>
-            <td>{!!substr($cat->description, 0, 100)!!}... <a href="{{route('show_category', $cat->id)}}">more</a></td>
+            <td>{!!substr($cat->description, 0, 20)!!}... <a href="{{route('show_category', $cat->id)}}">more</a></td>
             <td>{{$cat->created_at->format('d M, Y')}}</td>
             <td class="d-flex flex-column gap-2">
                 <a href="{{route('edit_category', $cat->id)}}" class="btn btn-warning">edit</a>

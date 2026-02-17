@@ -39,7 +39,7 @@
                                     </ul>
                                 </div>
                                 <div class="sidebar__categories-wrapper sidebar__single wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                                    <h4 class="sidebar__title">Categories</h4>
+                                    <h4 class="sidebar__title">Services</h4>
                                     <ul class="sidebar__categories list-unstyled">
                                         @if(isset($all_categories) && $all_categories)
                                         @foreach($all_categories->sortByDesc('created_at') as $cat)

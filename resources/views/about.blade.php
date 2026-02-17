@@ -24,7 +24,8 @@
                             </div>
                             <div class="about-one__funfact count-box">
                                 <h3 class="about-one__count">
-                                    <span class="count-text" data-stop="8" data-speed="1500"></span>
+                                    {{-- <span class="count-text" data-stop="20" data-speed="1500"></span> --}}
+                                    <span id="age"></span>
                                     <span>+</span>
                                 </h3>
                                 <p class="about-one__funfact__text">years of <br> experience</p>
@@ -334,4 +335,12 @@
                 </div>
             </div>
         </section>
+    
+    <script>
+        const birthYear = 2017;
+        const currentYear = new Date().getFullYear();
+        const age = currentYear - birthYear;
+
+        document.getElementById('age').innerHTML = age;
+    </script>
 @endsection

@@ -21,7 +21,7 @@ class PostsController extends Controller
         $description="All posts";
         $page_data= ['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];// associative array
 
-        $posts = Posts::all();
+        $posts = Posts::with(['category', 'user'])->get();
         //dd($posts);
         return view('posts.index', compact('posts', 'page_data'));
     }
@@ -33,7 +33,7 @@ class PostsController extends Controller
         $description="All posts";
         $page_data= ['title'=>$title, 'keywords'=>$keywords, 'description'=>$description];// associative array
 
-        $posts = Posts::all();
+        $posts = Posts::with(['category', 'user'])->get();
         //dd($posts);
         return view('updates', compact('posts', 'page_data'));
     }

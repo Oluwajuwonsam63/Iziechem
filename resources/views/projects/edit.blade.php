@@ -16,7 +16,7 @@
                         @include('includes.create')
                     <div class="col-xl-6">
                         <div class="login-page__right wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                            <div class="login-page__login-box">
+                            <div class="login-page__login-boxes">
                                 <div class="login-page__content">
                                     <div class="login-page__logo">
                                         <a href="index.html">
@@ -24,7 +24,7 @@
                                         </a>
                                     </div>
                                         @include('includes.errors')
-                                    <h1 class="login-page__title" style="text-align: center; font-size: 20px;">{{ __('Teams Details') }}</h1>
+                                    <h1 class="login-page__title" style="text-align: center; font-size: 20px;">{{ __('Project Details') }}</h1>
                                     <form method="POST" action="{{ route('update_projects', $projects->id) }}" enctype="multipart/form-data">
                                         @csrf   
                                         <div class="login-page__group">

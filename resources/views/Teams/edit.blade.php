@@ -8,7 +8,7 @@
                         @include('includes.create')
                     <div class="col-xl-6">
                         <div class="login-page__right wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                            <div class="login-page__login-box">
+                            <div class="login-page__login-boxes">
                                 <div class="login-page__content">
                                     <div class="login-page__logo">
                                         <a href="index.html">
@@ -51,7 +51,7 @@
                                             </div>
                                             <div class="login-page__input-box">
                                                 <label for="bio">{{ __('bio') }}</label>
-                                                <textarea col='30' rows="10" id="bio"  class="form-control" name="bio" required autocomplete="bio">{{old('bio', $teams->bio)}}</textarea>                  
+                                                <textarea col='30' rows="10" id="editor"  class="form-control" name="bio" required autocomplete="bio">{{old('bio', $teams->bio)}}</textarea>                  
                                                 @error('bio')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

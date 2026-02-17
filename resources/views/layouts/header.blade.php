@@ -38,6 +38,7 @@
     <!-- Scripts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer>
     </script>
@@ -48,8 +49,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
         integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous" defer>
     </script>
-    <script src="https://cdn.tiny.cloud/1/lcft4v6q2ezbb2xe5xizujcdof4wxvoi1mbnzyd6bney1j7h/tinymce/6/tinymce.min.js"
-        referrerpolicy="origin"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 
 
@@ -172,11 +171,11 @@
                                             </ul>
                                         </li>
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle">Categories</a>
+                                            <a href="#" class="dropdown-toggle">Services</a>
                                             <ul class="sub-menu">
                                                 <li>
                                                     <a
-                                                        href="{{ route('all_categories') }}">{{ __('All Category') }}</a>
+                                                        href="{{ route('all_categories') }}">{{ __('All Services') }}</a>
                                                 </li>
                                                 <li>
                                                     <a href="{{ route('create_category') }}">{{ __('Create') }}</a>
@@ -322,12 +321,12 @@
                                                     <a id="navbarDropdown" class="nav-link dropdown-toggle"
                                                         href="#" role="button" data-bs-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false" v-pre>
-                                                        {{ __('Categories') }}
+                                                        {{ __('Services') }}
                                                     </a>
                                                     <ul>
                                                         <li class="dropdown">
                                                             <a
-                                                                href="{{ route('all_categories') }}">{{ __('All Category') }}</a>
+                                                                href="{{ route('all_categories') }}">{{ __('All Services') }}</a>
                                                         </li>
                                                         <li class="dropdown">
                                                             <a
@@ -714,6 +713,11 @@
     {{-- add this near the end of your main layout --}}
     @include('components.livewire')
 
+    @if(!isset($_COOKIE['cookie_consent']))
+    <!-- cookie banner HTML here -->
+    @include('cookies')
+    @endif
+
 
 
 
@@ -759,66 +763,51 @@
     </script> --}}
 
     <script>
-        ClassicEditor
-            .create(document.querySelector("#editor"), {
-                toolbar: [
-                    'undo', 'redo', 'heading', '|',
-                    'bold', 'italic', 'link', 'uploadImage', 'mediaEmbed', '|',
-                    'insertTable', 'blockQuote', '|',
-                    'numberedList', 'bulletedList', 'outdent', 'indent'
-                ],
-                image: {
-                    toolbar: ['imageTextAlternative', 'imageStyle:side', 'imageStyle:side']
-                }
-            })
-            .then(editor => {
-                editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
-                    return new UploadAdapter(loader);
-                };
+  // Custom upload adapter for CKEditor
+  class MyUploadAdapter {
+    constructor(loader) {
+      this.loader = loader;
+    }
 
-                class UploadAdapter {
-                    constructor(loader) {
-                        this.loader = loader;
-                    }
+    upload() {
+      return this.loader.file
+        .then(file => {
+          const data = new FormData();
+          data.append('file', file);
 
-                    upload() {
-                        return this.loader.file.then(file => {
-                            const data = new FormData();
-                            data.append('upload', file);
-                            data.append('_token', '{{ csrf_token() }}');
+          return fetch('http://localhost/iziechem/upload.php', {
+            method: 'POST',
+            body: data
+          })
+          .then(response => response.json())
+          .then(result => ({ default: result.url }));
+        });
+    }
 
-                            return fetch('{{ url('/upload-image/') }}', {
-                                    method: 'POST',
-                                    headers: {
-                                        'X-Requested-With': 'XMLHttpRequest'
-                                    },
-                                    body: data
-                                })
-                                .then(response => {
-                                    if (!response.ok) {
-                                        throw new Error('Upload failed with status ' + response.status);
-                                    }
-                                    return response.json();
-                                })
-                                .then(result => {
-                                    if (result.url) {
-                                        return {
-                                            default: result.url
-                                        };
-                                    } else {
-                                        throw new Error(result.error || 'Upload failed');
-                                    }
-                                });
-                        });
-                    }
+    abort() {
+      // Optional: handle abort if needed
+    }
+  }
 
-                    abort() {}
-                }
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
+  function MyCustomUploadAdapterPlugin(editor) {
+    editor.plugins.get('FileRepository').createUploadAdapter = loader => {
+      return new MyUploadAdapter(loader);
+    };
+  }
+
+  ClassicEditor
+    .create(document.querySelector('#editor'), {
+      extraPlugins: [MyCustomUploadAdapterPlugin],
+      toolbar: [
+        'undo', 'redo', 'heading', '|',
+        'bold', 'italic', 'link', 'uploadImage', 'mediaEmbed', '|',
+        'insertTable', 'blockQuote', '|',
+        'numberedList', 'bulletedList', 'outdent', 'indent']
+    })
+    .catch(error => {
+        console.error(error);
+    });
+</script>
 
     @yield('scripts')
 </body>

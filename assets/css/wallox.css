@@ -8862,13 +8862,21 @@ body.megamenu-popup-active .mobile-nav__content {
 }
 .login-page__login-box {
   position: relative;
+  /* background: var(--wallox-gray, #F4EDE4); */
+  padding: 30px 10px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,5); 
+  margin-top: 10%;
+}
+.login-page__login-boxes {
+  position: relative;
   background: var(--wallox-gray, #F4EDE4);
   padding: 30px 10px;
   border-radius: 30px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 .login-page__content {
-  max-width: 557px;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }

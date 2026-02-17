@@ -49,17 +49,7 @@
                                 </div>
                                 <div class="contact-one__item__content">
                                     <h5 class="contact-one__item__title">support email</h5>
-                                    <a href="mailto:iziechempaint026@gmail.com" class="contact-one__item__call">iziechempaint026@gmail.com</a>
-                                </div>
-                            </div>
-                            <div class="contact-one__item">
-                                <div class="contact-one__item__icon">
-                                    <i class="icon-telephone"></i>
-                                </div>
-                                <div class="contact-one__item__content">
-                                    <h5 class="contact-one__item__title">Quick Contact</h5>
-                                    <a href="tel:+234-903-696-9352" class="contact-one__item__call">+234 903 696 9352</a>
-                                    <a href="tel:+234-701-080-0585" class="contact-one__item__call">+234 701 080 0585</a>
+                                    <a href="mailto:iziechempaint026@gmail.com" class="contact-one__item__call">iziechempaint026<br>@gmail.com</a>
                                 </div>
                             </div>
                         </div>

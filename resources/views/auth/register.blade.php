@@ -2,15 +2,6 @@
 
 @section('content')
 
-<style>
-html, body {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: scroll;
-}
-</style>
-
 
         <!-- Login Start -->
         <section class="login-page" style="margin-right: auto; padding-bottom:100px; margin-left: auto; max-width: 100%; position: relative; margin-bottom: 60px">
@@ -22,7 +13,7 @@ html, body {
                 <div class="row gutter-y-30 align-items-center justify-content-center">
                     <div class="col-md-6">
                         <div class="login-page__right wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                            <div class="login-page__login-box" style="background: rgba(255, 255, 255, 0.9); border-radius: 30px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                            <div class="login-page__login-box">
                                 <div class="login-page__content">
                                     <div class="login-page__logo" style="align-item: center; margin-bottom: 20px;">
                                         <a href="{{ url('/') }}">
@@ -77,9 +68,9 @@ html, body {
                                                 <div class="login-page__input-box__btn">
                                                     <button type="submit" class="wallox-btn wallox-btn--base">{{ __('Sign Up') }}</button>
                                                 </div>
-                                                {{-- <div class="login-page__input-box__btn">
+                                                <div class="login-page__input-box__btn">
                                                     <a href="{{ route('auth.google') }}" class="wallox-btn wallox-btn__google"><img src="assets/images/shapes/google.png" alt> {{ __('Or sign up with Google') }}</a>
-                                                </div> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </form>

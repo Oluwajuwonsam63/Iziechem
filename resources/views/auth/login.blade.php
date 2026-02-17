@@ -1,15 +1,6 @@
 @extends('layouts.signup')
 
 @section('content')
-{{-- <style>
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Prevent scrolling on the body */
-
-}
-</style> --}}
 
 
         <!-- Login Start -->
@@ -65,13 +56,13 @@ html, body {
                                                 <div class="login-page__input-box__btn">
                                                     <button type="submit" class="wallox-btn wallox-btn--base">{{ __('Sign in') }}</button>
                                                 </div>
-                                                {{-- <div class="login-page__input-box__btn">
+                                                <div class="login-page__input-box__btn">
                                                     <a href="{{ route('auth.google') }}" class="wallox-btn wallox-btn__google"><img src="assets/images/shapes/google.png" alt> {{ __('Or sign in with Google') }}</a>
-                                                </div> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
-                                    <p class="login-page__form__text">{{ __('Dont have an account?') }}<a href="{{ route('register') }}">{{ __('Sign up now') }}</a></p>
+                                    <p class="login-page__form__text">{{ __('Dont have an account?') }}<a href="{{ route('register') }}">{{ __('Sign up') }}</a></p>
                                 </div>
                             </div>
                         </div>

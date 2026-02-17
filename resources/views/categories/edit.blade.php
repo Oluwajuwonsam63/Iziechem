@@ -17,7 +17,7 @@
                     @include('includes.create')
                 <div class="col-xl-6">
                     <div class="login-page__right wow fadeInRight" data-wow-duration='1500ms' data-wow-delay='500ms'>
-                        <div class="login-page__login-box">
+                        <div class="login-page__login-boxes">
                             <div class="login-page__content">
                                 <div class="login-page__logo">
                                     <a href="index.html">

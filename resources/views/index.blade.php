@@ -382,22 +382,22 @@
                                     </div>
                                     <div class="item">
                                         <div class="project-three__thumb__item">
-                                            <img src="assets/images/resources/work5.png" alt="iziechem">
+                                            <img src="assets/images/resources/New1.jpeg" alt="iziechem">
                                         </div>
                                     </div>
                                     <div class="item">
                                         <div class="project-three__thumb__item">
-                                            <img src="assets/images/resources/work6.png" alt="iziechem">
+                                            <img src="assets/images/resources/New2.jpeg" alt="iziechem">
                                         </div>
                                     </div>
                                     <div class="item">
                                         <div class="project-three__thumb__item">
-                                            <img src="assets/images/resources/work4.png" alt="iziechem">
+                                            <img src="assets/images/resources/New3.jpeg" alt="iziechem">
                                         </div>
                                     </div>
                                     <div class="item">
                                         <div class="project-three__thumb__item">
-                                            <img src="assets/images/resources/work3.png" alt="iziechem">
+                                            <img src="assets/images/resources/New4.jpeg" alt="iziechem">
                                         </div>
                                     </div>
                                 </div>
@@ -608,16 +608,16 @@
                         }
                         }'>
                                     <div class="client-carousel__one__item">
-                                        <img class="client-carousel__one__image" src="assets/images/brand/cac1.png" alt="iziechem">
+                                        <img class="client-carousel__one__image" src="assets/images/brand/cac2.png" alt="iziechem">
                                         <img class="client-carousel__one__hover-image" src="assets/images/brand/cac1.png" alt="iziechem">
                                     </div>
                                     <div class="client-carousel__one__item">
-                                        <img class="client-carousel__one__image" src="assets/images/brand/brand-1-2.png" alt="iziechem">
-                                        <img class="client-carousel__one__hover-image" src="assets/images/brand/brand-hover-1-2.png" alt="iziechem">
+                                        <img class="client-carousel__one__image" src="assets/images/brand/learn2.png" alt="iziechem">
+                                        <img class="client-carousel__one__hover-image" src="assets/images/brand/learn1.png" alt="iziechem">
                                     </div>
                                     <div class="client-carousel__one__item">
-                                        <img class="client-carousel__one__image" src="assets/images/brand/brand-1-3.png" alt="iziechem">
-                                        <img class="client-carousel__one__hover-image" src="assets/images/brand/brand-hover-1-3.png" alt="iziechem">
+                                        <img class="client-carousel__one__image" src="assets/images/brand/logo2.png" alt="iziechem">
+                                        <img class="client-carousel__one__hover-image" src="assets/images/brand/logo1.png" alt="iziechem">
                                     </div>
                                     <div class="client-carousel__one__item">
                                         <img class="client-carousel__one__image" src="assets/images/brand/brand-1-4.png" alt="iziechem">
